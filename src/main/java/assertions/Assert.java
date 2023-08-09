@@ -121,7 +121,17 @@ public class Assert {
         return this;
     }
 
-    public Assert elementText(@NotNull final By elementLocated, final String expectedText) {
+    public Assert elementNotDisplayed(@NotNull final By elementLocated) {
+        try {
+            new Assertion().assertFalse(ElementState.isDisplayed(elementLocated), "Element located with {" + elementLocated.toString() + "} is displayed");
+            System.out.println("Element located with {" + elementLocated + "} is displayed");
+        } catch (Exception e) {
+            ExceptionHandling.handleException(e);
+        }
+        return this;
+    }
+
+    public Assert elementTextToBe(@NotNull final By elementLocated, final String expectedText) {
         try {
             new Assertion().assertEquals(ElementActions.getText(elementLocated).trim(), expectedText.trim());
             System.out.println("Element text {" + ElementActions.getText(elementLocated).trim() + "} located with {" + elementLocated.toString() + "} is equals to the expected text {" + expectedText.trim() + "}");
@@ -131,6 +141,15 @@ public class Assert {
         return this;
     }
 
+    public Assert elementTextContains(@NotNull final By elementLocated, final String expectedText) {
+        try {
+            new Assertion().assertTrue(ElementActions.getText(elementLocated).trim().contains(expectedText.trim()));
+            System.out.println("Element text {" + ElementActions.getText(elementLocated).trim() + "} located with {" + elementLocated.toString() + "} contains the expected text {" + expectedText.trim() + "}");
+        } catch (Exception e) {
+            ExceptionHandling.handleException(e);
+        }
+        return this;
+    }
     public Assert textToBe(@NotNull final String actualText, @NotNull final String expectedText) {
         try {
             new Assertion().assertEquals(actualText, expectedText);
