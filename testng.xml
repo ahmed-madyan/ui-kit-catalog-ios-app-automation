@@ -4,7 +4,7 @@
 <suite name="Regression MobileBrowserTest Suite">
     <test name="Regression MobileBrowserTest">
         <classes>
-            <class name="TestAlerts"/>
+            <class name="TestIOSAlerts"/>
         </classes>
     </test>
 </suite>

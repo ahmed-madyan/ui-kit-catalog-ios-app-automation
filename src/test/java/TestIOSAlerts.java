@@ -5,7 +5,7 @@ import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
-public class TestAlerts extends DriverInitializer {
+public class TestIOSAlerts extends DriverInitializer {
     private static final By ALERT_VIEWS_BUTTON = AppiumBy.accessibilityId("Alert Views");
     private static final By TEXT_ENTRY_BUTTON = AppiumBy.iOSClassChain("**/XCUIElementTypeStaticText[`name=='Text Entry'`]");
     private static final By TEXT_ENTRY_ALERT_TEXT_BOX = AppiumBy.iOSNsPredicateString("type == 'XCUIElementTypeTextField'");
@@ -17,13 +17,13 @@ public class TestAlerts extends DriverInitializer {
     private static final By CONFIRM_CANCEL_ALERT_CANCEL_BUTTON = AppiumBy.accessibilityId("Confirm");
 
     @Test
-    public void testAlertTextEntry() {
-        openAlertViewsPage();
-//        ElementActions.click(TEXT_ENTRY_BUTTON);
-//        ElementActions.click(TEXT_ENTRY_ALERT_Cancel_BUTTON);
-//        ElementActions.click(TEXT_ENTRY_BUTTON);
-//        ElementActions.sendKeys(TEXT_ENTRY_ALERT_TEXT_BOX, "Ahmed");
-//        ElementActions.click(TEXT_ENTRY_ALERT_OK_BUTTON);
+    public void testIOSAlerts() {
+        ElementActions.click(ALERT_VIEWS_BUTTON);
+        ElementActions.click(TEXT_ENTRY_BUTTON);
+        ElementActions.click(TEXT_ENTRY_ALERT_Cancel_BUTTON);
+        ElementActions.click(TEXT_ENTRY_BUTTON);
+        ElementActions.sendKeys(TEXT_ENTRY_ALERT_TEXT_BOX, "Ahmed");
+        ElementActions.click(TEXT_ENTRY_ALERT_OK_BUTTON);
 
         ElementActions.click(CONFIRM_CANCEL_ALERT_BUTTON);
         Assertions.hardAssert().elementDisplayed(CONFIRM_CANCEL_ALERT_MESSAGE_TEXT);
@@ -32,10 +32,5 @@ public class TestAlerts extends DriverInitializer {
         Assertions.hardAssert().elementNotDisplayed(CONFIRM_CANCEL_ALERT_MESSAGE_TEXT);
         ElementActions.click(CONFIRM_CANCEL_ALERT_BUTTON);
         ElementActions.click(CONFIRM_CANCEL_ALERT_CONFIRM_BUTTON);
-    }
-
-
-    public void openAlertViewsPage() {
-        ElementActions.click(ALERT_VIEWS_BUTTON);
     }
 }
