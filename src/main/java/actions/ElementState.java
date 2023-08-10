@@ -5,6 +5,8 @@ import org.openqa.selenium.By;
 import waits.Waits;
 
 public class ElementState {
+    public ElementState() {
+    }
 
     public static boolean isCheckable(final By elementLocated) {
         boolean isCheckable = false;
