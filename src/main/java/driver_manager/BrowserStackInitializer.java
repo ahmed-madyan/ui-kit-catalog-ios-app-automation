@@ -1,7 +1,11 @@
 package driver_manager;
 
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.options.XCUITestOptions;
+import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import readers.properties_reader.PropertiesConfigurations;
 import readers.properties_reader.PropertiesDataManager;
@@ -19,9 +23,9 @@ public class BrowserStackInitializer {
                     "@hub-cloud.browserstack.com/wd/hub");
     private static final DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
     private static final HashMap<String, Object> browserstackOptions = new HashMap<>();
-    private static IOSDriver iosDriver;
+    private static AppiumDriver appiumDriver;
 
-    protected static IOSDriver browserStackInitialization() {
+    protected static AppiumDriver browserStackInitialization() {
         System.out.println("TargetRemoteExecution: " + PropertiesConfigurations.getTargetRemoteExecution());
         switch (PropertiesConfigurations.getTargetRemoteExecution()) {
             case "manual" -> setupManually();
@@ -31,8 +35,9 @@ public class BrowserStackInitializer {
                 throw new RuntimeException();
             }
         }
-        return iosDriver;
+        return appiumDriver;
     }
+
 
     private static void setupManually() {
         //Build the Browser Stack service
@@ -79,19 +84,50 @@ public class BrowserStackInitializer {
         desiredCapabilities.setCapability("bstack:options", browserstackOptions);
         /**********************************************************************************************************/
         //Initialize the driver and launch the app
-        try {
-            iosDriver = new IOSDriver(new URL(browserStack_ServerURL), desiredCapabilities);
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
+        switch (PropertiesConfigurations.getTargetOperatingSystem()) {
+            case "android" -> {
+                try {
+                    appiumDriver = new AndroidDriver(new URL(browserStack_ServerURL), desiredCapabilities);
+                } catch (MalformedURLException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            case "ios" -> {
+                try {
+                    appiumDriver = new IOSDriver(new URL(browserStack_ServerURL), desiredCapabilities);
+                } catch (MalformedURLException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            default -> {
+                System.out.println("Kindly set the target operating system option.");
+                throw new RuntimeException();
+            }
         }
     }
 
     private static void setupYML() {
-        try {
-            XCUITestOptions capabilities = new XCUITestOptions();
-            iosDriver = new IOSDriver(new URL(PropertiesDataManager.getProperty("appiumServerURL", PropertiesDataManager.Capability.BROWSERSTACK)), capabilities);
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
+        switch (PropertiesConfigurations.getTargetOperatingSystem()) {
+            case "android" -> {
+                try {
+                    MutableCapabilities capabilities = new UiAutomator2Options();
+                    appiumDriver = new AndroidDriver(new URL(PropertiesDataManager.getProperty("appiumServerURL", PropertiesDataManager.Capability.BROWSERSTACK)), capabilities);
+                } catch (MalformedURLException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            case "ios" -> {
+                try {
+                    MutableCapabilities capabilities = new XCUITestOptions();
+                    appiumDriver = new IOSDriver(new URL(PropertiesDataManager.getProperty("appiumServerURL", PropertiesDataManager.Capability.BROWSERSTACK)), capabilities);
+                } catch (MalformedURLException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            default -> {
+                System.out.println("Kindly set the target operating system option.");
+                throw new RuntimeException();
+            }
         }
     }
 }

@@ -1,12 +1,14 @@
-package actions;
+package elements;
 
 import driver_manager.DriverManager;
 import org.openqa.selenium.By;
 import waits.Waits;
 
 public class ElementState {
+    public ElementState() {
+    }
 
-    public static boolean isCheckable(final By elementLocated) {
+    public  boolean isCheckable(final By elementLocated) {
         boolean isCheckable = false;
         try {
             Waits.fluentlyWait().visibilityOfElementLocated(elementLocated);
@@ -19,7 +21,7 @@ public class ElementState {
         return isCheckable;
     }
 
-    public static boolean isChecked(final By elementLocated) {
+    public  boolean isChecked(final By elementLocated) {
         boolean isChecked = false;
         try {
             Waits.fluentlyWait().visibilityOfElementLocated(elementLocated);
@@ -32,7 +34,7 @@ public class ElementState {
         return isChecked;
     }
 
-    public static boolean isClickable(final By elementLocated) {
+    public  boolean isClickable(final By elementLocated) {
         boolean isClickable = false;
         try {
             Waits.fluentlyWait().visibilityOfElementLocated(elementLocated);
@@ -45,7 +47,7 @@ public class ElementState {
         return isClickable;
     }
 
-    public static boolean isEnabled(final By elementLocated) {
+    public  boolean isEnabled(final By elementLocated) {
         boolean isEnabled = false;
         try {
             Waits.fluentlyWait().visibilityOfElementLocated(elementLocated);
@@ -58,7 +60,7 @@ public class ElementState {
         return isEnabled;
     }
 
-    public static boolean isFocusable(final By elementLocated) {
+    public  boolean isFocusable(final By elementLocated) {
         boolean isFocusable = false;
         try {
             Waits.fluentlyWait().visibilityOfElementLocated(elementLocated);
@@ -71,7 +73,7 @@ public class ElementState {
         return isFocusable;
     }
 
-    public static boolean isFocused(final By elementLocated) {
+    public  boolean isFocused(final By elementLocated) {
         boolean isFocused = false;
         try {
             Waits.fluentlyWait().visibilityOfElementLocated(elementLocated);
@@ -84,7 +86,7 @@ public class ElementState {
         return isFocused;
     }
 
-    public static boolean isLongClickable(final By elementLocated) {
+    public  boolean isLongClickable(final By elementLocated) {
         boolean isLongClickable = false;
         try {
             Waits.fluentlyWait().visibilityOfElementLocated(elementLocated);
@@ -97,7 +99,7 @@ public class ElementState {
         return isLongClickable;
     }
 
-    public static boolean isPassword(final By elementLocated) {
+    public  boolean isPassword(final By elementLocated) {
         boolean isPassword = false;
         try {
             Waits.fluentlyWait().visibilityOfElementLocated(elementLocated);
@@ -110,7 +112,7 @@ public class ElementState {
         return isPassword;
     }
 
-    public static boolean isScrollable(final By elementLocated) {
+    public  boolean isScrollable(final By elementLocated) {
         boolean isScrollable = false;
         try {
             Waits.fluentlyWait().visibilityOfElementLocated(elementLocated);
@@ -123,7 +125,7 @@ public class ElementState {
         return isScrollable;
     }
 
-    public static boolean isSelected(final By elementLocated) {
+    public  boolean isSelected(final By elementLocated) {
         boolean isSelected = false;
         try {
             Waits.fluentlyWait().visibilityOfElementLocated(elementLocated);
@@ -136,7 +138,7 @@ public class ElementState {
         return isSelected;
     }
 
-    public static boolean isDisplayed(final By elementLocated) {
+    public  boolean isDisplayed(final By elementLocated) {
         boolean isDisplayed = false;
         try {
             if (DriverManager.getDriverInstance().findElement(elementLocated).isDisplayed()) {

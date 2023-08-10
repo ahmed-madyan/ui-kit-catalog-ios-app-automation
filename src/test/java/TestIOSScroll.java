@@ -1,13 +1,14 @@
 import elements.Elements;
+import elements.GestureActions;
 import driver_manager.DriverInitializer;
+import elements.IOSGestures;
 import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
-public class TestIOSLongPress extends DriverInitializer {
-    private static final By Steppers_BUTTON = AppiumBy.accessibilityId("Steppers");
-    private static final By CUSTOM_INCREMENT_BUTTON = AppiumBy.xpath("//XCUIElementTypeOther[@name='CUSTOM']//following::XCUIElementTypeCell/XCUIElementTypeButton");
-    private static final By TEXT_ENTRY_ALERT_TEXT_BOX = AppiumBy.iOSNsPredicateString("type == 'XCUIElementTypeTextField'");
+public class TestIOSScroll extends DriverInitializer {
+
+    private static final By Web_View_BUTTON = AppiumBy.accessibilityId("Web View");
     private static final By TEXT_ENTRY_ALERT_OK_BUTTON = AppiumBy.accessibilityId("OK");
     private static final By TEXT_ENTRY_ALERT_Cancel_BUTTON = AppiumBy.accessibilityId("Cancel");
     private static final By CONFIRM_CANCEL_ALERT_BUTTON = AppiumBy.accessibilityId("Confirm / Cancel");
@@ -15,14 +16,16 @@ public class TestIOSLongPress extends DriverInitializer {
     private static final By CONFIRM_CANCEL_ALERT_CONFIRM_BUTTON = AppiumBy.accessibilityId("Cancel");
     private static final By CONFIRM_CANCEL_ALERT_CANCEL_BUTTON = AppiumBy.accessibilityId("Confirm");
     @Test
-    public void testIOSLongPress() {
+    public void testIOSScroll() throws InterruptedException {
+
+//        Elements.touchActions().scrollToElement(Web_View_BUTTON);
+
         Elements
-                .elementActions()
-                .click(Steppers_BUTTON)
-                .click(CUSTOM_INCREMENT_BUTTON)
                 .gestureActions()
                 .iosGestures()
-                .longClick(CUSTOM_INCREMENT_BUTTON, 10);
-
+                .scrollWithCoordinates(Web_View_BUTTON, IOSGestures.Direction.DOWN)
+                .elementActions()
+                .click(Web_View_BUTTON);
+        Thread.sleep(10000);
     }
 }

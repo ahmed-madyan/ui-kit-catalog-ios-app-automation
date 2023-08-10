@@ -2,6 +2,7 @@ package waits;
 
 import driver_manager.DriverManager;
 import exception_handling.ExceptionHandling;
+import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -98,7 +99,7 @@ public class Fluent {
         String currentContext;
         try {
             do {
-                currentContext = DriverManager.getCurrentContextHandle();
+                currentContext = ((AndroidDriver) DriverManager.getDriverInstance()).getContext();
             } while (!currentContext.equalsIgnoreCase(context));
         } catch (Exception e) {
             ExceptionHandling.handleException(e);

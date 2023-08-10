@@ -1,7 +1,7 @@
 package assertions;
 
-import actions.ElementActions;
-import actions.ElementState;
+import elements.Elements;
+import elements.ElementActions;
 import exception_handling.ExceptionHandling;
 import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 import org.openqa.selenium.By;
@@ -13,7 +13,7 @@ public class Assert {
 
     public Assert elementCheckable(@NotNull final By elementLocated) {
         try {
-            new Assertion().assertTrue(ElementState.isCheckable(elementLocated), "Element located with {" + elementLocated.toString() + "} is not checkable");
+            new Assertion().assertTrue(Elements.elementState().isCheckable(elementLocated), "Element located with {" + elementLocated.toString() + "} is not checkable");
             System.out.println("Element located with {" + elementLocated + "} is checkable");
         } catch (Exception e) {
            ExceptionHandling.handleException(e);
@@ -23,7 +23,7 @@ public class Assert {
 
     public Assert elementChecked(@NotNull final By elementLocated) {
         try {
-            new Assertion().assertTrue(ElementState.isChecked(elementLocated), "Element located with {" + elementLocated.toString() + "} is not checked");
+            new Assertion().assertTrue(Elements.elementState().isChecked(elementLocated), "Element located with {" + elementLocated.toString() + "} is not checked");
             System.out.println("Element located with {" + elementLocated + "} is checked");
         } catch (Exception e) {
            ExceptionHandling.handleException(e);
@@ -33,7 +33,7 @@ public class Assert {
 
     public Assert elementClickable(@NotNull final By elementLocated) {
         try {
-            new Assertion().assertTrue(ElementState.isClickable(elementLocated), "Element located with {" + elementLocated.toString() + "} is not clickable");
+            new Assertion().assertTrue(Elements.elementState().isClickable(elementLocated), "Element located with {" + elementLocated.toString() + "} is not clickable");
             System.out.println("Element located with {" + elementLocated + "} is clickable");
         } catch (Exception e) {
            ExceptionHandling.handleException(e);
@@ -43,7 +43,7 @@ public class Assert {
 
     public Assert elementEnabled(@NotNull final By elementLocated) {
         try {
-            new Assertion().assertTrue(ElementState.isEnabled(elementLocated), "Element located with {" + elementLocated.toString() + "} is not enabled");
+            new Assertion().assertTrue(Elements.elementState().isEnabled(elementLocated), "Element located with {" + elementLocated.toString() + "} is not enabled");
             System.out.println("Element located with {" + elementLocated + "} is enabled");
         } catch (Exception e) {
            ExceptionHandling.handleException(e);
@@ -53,7 +53,7 @@ public class Assert {
 
     public Assert elementFocusable(@NotNull final By elementLocated) {
         try {
-            new Assertion().assertTrue(ElementState.isFocusable(elementLocated), "Element located with {" + elementLocated.toString() + "} is not focusable");
+            new Assertion().assertTrue(Elements.elementState().isFocusable(elementLocated), "Element located with {" + elementLocated.toString() + "} is not focusable");
             System.out.println("Element located with {" + elementLocated + "} is focusable");
         } catch (Exception e) {
            ExceptionHandling.handleException(e);
@@ -63,7 +63,7 @@ public class Assert {
 
     public Assert elementFocused(@NotNull final By elementLocated) {
         try {
-            new Assertion().assertTrue(ElementState.isFocused(elementLocated), "Element located with {" + elementLocated.toString() + "} is not focused");
+            new Assertion().assertTrue(Elements.elementState().isFocused(elementLocated), "Element located with {" + elementLocated.toString() + "} is not focused");
             System.out.println("Element located with {" + elementLocated + "} is focused");
         } catch (Exception e) {
            ExceptionHandling.handleException(e);
@@ -73,7 +73,7 @@ public class Assert {
 
     public Assert elementLongClickable(@NotNull final By elementLocated) {
         try {
-            new Assertion().assertTrue(ElementState.isLongClickable(elementLocated), "Element located with {" + elementLocated.toString() + "} is not long-clickable");
+            new Assertion().assertTrue(Elements.elementState().isLongClickable(elementLocated), "Element located with {" + elementLocated.toString() + "} is not long-clickable");
             System.out.println("Element located with {" + elementLocated + "} is long-clickable");
         } catch (Exception e) {
            ExceptionHandling.handleException(e);
@@ -83,7 +83,7 @@ public class Assert {
 
     public Assert elementPassword(@NotNull final By elementLocated) {
         try {
-            new Assertion().assertTrue(ElementState.isPassword(elementLocated), "Element located with {" + elementLocated.toString() + "} is not password");
+            new Assertion().assertTrue(Elements.elementState().isPassword(elementLocated), "Element located with {" + elementLocated.toString() + "} is not password");
             System.out.println("Element located with {" + elementLocated + "} is password");
         } catch (Exception e) {
            ExceptionHandling.handleException(e);
@@ -93,7 +93,7 @@ public class Assert {
 
     public Assert elementScrollable(@NotNull final By elementLocated) {
         try {
-            new Assertion().assertTrue(ElementState.isScrollable(elementLocated), "Element located with {" + elementLocated.toString() + "} is not scrollable");
+            new Assertion().assertTrue(Elements.elementState().isScrollable(elementLocated), "Element located with {" + elementLocated.toString() + "} is not scrollable");
             System.out.println("Element located with {" + elementLocated + "} is scrollable");
         } catch (Exception e) {
            ExceptionHandling.handleException(e);
@@ -103,7 +103,7 @@ public class Assert {
 
     public Assert elementSelected(@NotNull final By elementLocated) {
         try {
-            new Assertion().assertTrue(ElementState.isSelected(elementLocated), "Element located with {" + elementLocated.toString() + "} is not selected");
+            new Assertion().assertTrue(Elements.elementState().isSelected(elementLocated), "Element located with {" + elementLocated.toString() + "} is not selected");
             System.out.println("Element located with {" + elementLocated + "} is selected");
         } catch (Exception e) {
            ExceptionHandling.handleException(e);
@@ -113,7 +113,7 @@ public class Assert {
 
     public Assert elementDisplayed(@NotNull final By elementLocated) {
         try {
-            new Assertion().assertTrue(ElementState.isDisplayed(elementLocated), "Element located with {" + elementLocated.toString() + "} is not displayed");
+            new Assertion().assertTrue(Elements.elementState().isDisplayed(elementLocated), "Element located with {" + elementLocated.toString() + "} is not displayed");
             System.out.println("Element located with {" + elementLocated + "} is displayed");
         } catch (Exception e) {
            ExceptionHandling.handleException(e);
@@ -123,7 +123,7 @@ public class Assert {
 
     public Assert elementNotDisplayed(@NotNull final By elementLocated) {
         try {
-            new Assertion().assertFalse(ElementState.isDisplayed(elementLocated), "Element located with {" + elementLocated.toString() + "} is displayed");
+            new Assertion().assertFalse(Elements.elementState().isDisplayed(elementLocated), "Element located with {" + elementLocated.toString() + "} is displayed");
             System.out.println("Element located with {" + elementLocated + "} is displayed");
         } catch (Exception e) {
             ExceptionHandling.handleException(e);

@@ -1,4 +1,4 @@
-package actions;
+package elements;
 
 import driver_manager.DriverManager;
 import org.openqa.selenium.By;
@@ -10,7 +10,15 @@ import waits.Waits;
 import java.util.List;
 
 public class ElementActions {
+    public ElementActions() {
+    }
 
+    public static Elements actions() {
+        return new Elements();
+    }
+    public  GestureActions gestureActions() {
+        return new GestureActions();
+    }
     public static WebElement findElement(final By elementLocated) {
         WebElement element = null;
         try {
@@ -33,20 +41,22 @@ public class ElementActions {
         return element;
     }
 
-    public static void click(final By elementLocated) {
+    public ElementActions click(final By elementLocated) {
         try {
             findElement(elementLocated).click();
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return this;
     }
 
-    public static void sendKeys(final By elementLocated, final String keyToSend) {
+    public ElementActions sendKeys(final By elementLocated, final String keyToSend) {
         try {
             findElement(elementLocated).sendKeys(keyToSend);
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return this;
     }
 
     public static String getText(final By elementLocated) {

@@ -13,13 +13,13 @@ accessKey: efFbRGj4yaxcVuPxyJKs
 # Set 'projectName' to the name of your project. Example, Marketing Website
 projectName: UI Kit Catalog iOS App
 # Set `buildName` as the name of the job / testsuite being run
-buildName: UI Kit Catalog iOS App Sanity Check build
+buildName: UI Kit Catalog iOS App Sanity Check build No.
 # `buildIdentifier` is a unique id to differentiate every execution that gets appended to
 # buildName. Choose your buildIdentifier format from the available expressions:
 # ${BUILD_NUMBER} (Default): Generates an incremental counter with every execution
 # ${DATE_TIME}: Generates a Timestamp with every execution. Eg. 05-Nov-19:30
 # Read more about buildIdentifiers here -> https://www.browserstack.com/docs/automate/selenium/organize-tests
-buildIdentifier: '#${BUILD_NUMBER}' # Supports strings along with either/both ${expression}
+buildIdentifier: '#${BUILD_NUMBER} ${at} ${DATE_TIME}' # Supports strings along with either/both ${expression}
 # Set `framework` of your test suite. Example, `testng`, `cucumber`, `cucumber-testng`
 # This property is needed to send test context to BrowserStack (test name, status)
 framework: testng

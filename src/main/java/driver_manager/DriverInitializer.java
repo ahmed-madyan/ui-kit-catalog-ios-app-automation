@@ -1,12 +1,12 @@
 package driver_manager;
 
-import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.AppiumDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import readers.properties_reader.PropertiesConfigurations;
 
 public class DriverInitializer {
-    private static IOSDriver iosDriver;
+    private static AppiumDriver appiumDriver;
 
     @BeforeClass(alwaysRun = true)
     protected void initializeDriver() {
@@ -21,11 +21,11 @@ public class DriverInitializer {
         DriverManager.quitDriver();
     }
 
-    protected static IOSDriver getDriver() {
-        return iosDriver;
+        protected static AppiumDriver getDriver () {
+            return appiumDriver;
     }
 
-    private static void setDriver(IOSDriver iosDriver) {
-        DriverInitializer.iosDriver = iosDriver;
+        private static void setDriver (AppiumDriver appiumDriver){
+            DriverInitializer.appiumDriver = appiumDriver;
     }
 }
