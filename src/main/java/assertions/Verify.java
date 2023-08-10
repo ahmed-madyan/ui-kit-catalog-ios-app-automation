@@ -1,7 +1,7 @@
 package assertions;
 
-import actions.ElementActions;
-import actions.ElementState;
+import elements.Elements;
+import elements.ElementActions;
 import exception_handling.ExceptionHandling;
 import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 import org.openqa.selenium.By;
@@ -15,7 +15,7 @@ public class Verify {
 
     public Verify elementCheckable(@NotNull final By elementLocated) {
         try {
-            softAssert.assertTrue(ElementState.isCheckable(elementLocated), "Element located with {" + elementLocated.toString() + "} is not checkable");
+            softAssert.assertTrue(Elements.elementState().isCheckable(elementLocated), "Element located with {" + elementLocated.toString() + "} is not checkable");
             softAssert.assertAll();
             System.out.println("Element located with {" + elementLocated + "} is checkable");
         } catch (Exception e) {
@@ -26,7 +26,7 @@ public class Verify {
 
     public Verify elementChecked(@NotNull final By elementLocated) {
         try {
-            softAssert.assertTrue(ElementState.isChecked(elementLocated), "Element located with {" + elementLocated.toString() + "} is not checked");
+            softAssert.assertTrue(Elements.elementState().isChecked(elementLocated), "Element located with {" + elementLocated.toString() + "} is not checked");
             softAssert.assertAll();
             System.out.println("Element located with {" + elementLocated + "} is checked");
         } catch (Exception e) {
@@ -37,7 +37,7 @@ public class Verify {
 
     public Verify elementClickable(@NotNull final By elementLocated) {
         try {
-            softAssert.assertTrue(ElementState.isClickable(elementLocated), "Element located with {" + elementLocated.toString() + "} is not clickable");
+            softAssert.assertTrue(Elements.elementState().isClickable(elementLocated), "Element located with {" + elementLocated.toString() + "} is not clickable");
             softAssert.assertAll();
             System.out.println("Element located with {" + elementLocated + "} is clickable");
         } catch (Exception e) {
@@ -48,7 +48,7 @@ public class Verify {
 
     public Verify elementEnabled(@NotNull final By elementLocated) {
         try {
-            softAssert.assertTrue(ElementState.isEnabled(elementLocated), "Element located with {" + elementLocated.toString() + "} is not enabled");
+            softAssert.assertTrue(Elements.elementState().isEnabled(elementLocated), "Element located with {" + elementLocated.toString() + "} is not enabled");
             softAssert.assertAll();
             System.out.println("Element located with {" + elementLocated + "} is enabled");
         } catch (Exception e) {
@@ -59,7 +59,7 @@ public class Verify {
 
     public Verify elementFocusable(@NotNull final By elementLocated) {
         try {
-            softAssert.assertTrue(ElementState.isFocusable(elementLocated), "Element located with {" + elementLocated.toString() + "} is not focusable");
+            softAssert.assertTrue(Elements.elementState().isFocusable(elementLocated), "Element located with {" + elementLocated.toString() + "} is not focusable");
             softAssert.assertAll();
             System.out.println("Element located with {" + elementLocated + "} is focusable");
         } catch (Exception e) {
@@ -70,7 +70,7 @@ public class Verify {
 
     public Verify elementFocused(@NotNull final By elementLocated) {
         try {
-            softAssert.assertTrue(ElementState.isFocused(elementLocated), "Element located with {" + elementLocated.toString() + "} is not focused");
+            softAssert.assertTrue(Elements.elementState().isFocused(elementLocated), "Element located with {" + elementLocated.toString() + "} is not focused");
             softAssert.assertAll();
             System.out.println("Element located with {" + elementLocated + "} is focused");
         } catch (Exception e) {
@@ -81,7 +81,7 @@ public class Verify {
 
     public Verify elementLongClickable(@NotNull final By elementLocated) {
         try {
-            softAssert.assertTrue(ElementState.isLongClickable(elementLocated), "Element located with {" + elementLocated.toString() + "} is not long-clickable");
+            softAssert.assertTrue(Elements.elementState().isLongClickable(elementLocated), "Element located with {" + elementLocated.toString() + "} is not long-clickable");
             softAssert.assertAll();
             System.out.println("Element located with {" + elementLocated + "} is long-clickable");
         } catch (Exception e) {
@@ -92,7 +92,7 @@ public class Verify {
 
     public Verify elementPassword(@NotNull final By elementLocated) {
         try {
-            softAssert.assertTrue(ElementState.isPassword(elementLocated), "Element located with {" + elementLocated.toString() + "} is not password");
+            softAssert.assertTrue(Elements.elementState().isPassword(elementLocated), "Element located with {" + elementLocated.toString() + "} is not password");
             softAssert.assertAll();
             System.out.println("Element located with {" + elementLocated + "} is password");
         } catch (Exception e) {
@@ -103,7 +103,7 @@ public class Verify {
 
     public Verify elementScrollable(@NotNull final By elementLocated) {
         try {
-            softAssert.assertTrue(ElementState.isScrollable(elementLocated), "Element located with {" + elementLocated.toString() + "} is not scrollable");
+            softAssert.assertTrue(Elements.elementState().isScrollable(elementLocated), "Element located with {" + elementLocated.toString() + "} is not scrollable");
             softAssert.assertAll();
             System.out.println("Element located with {" + elementLocated + "} is scrollable");
         } catch (Exception e) {
@@ -114,7 +114,7 @@ public class Verify {
 
     public Verify elementSelected(@NotNull final By elementLocated) {
         try {
-            softAssert.assertTrue(ElementState.isSelected(elementLocated), "Element located with {" + elementLocated.toString() + "} is not selected");
+            softAssert.assertTrue(Elements.elementState().isSelected(elementLocated), "Element located with {" + elementLocated.toString() + "} is not selected");
             softAssert.assertAll();
             System.out.println("Element located with {" + elementLocated + "} is selected");
         } catch (Exception e) {
@@ -125,7 +125,7 @@ public class Verify {
 
     public Verify elementDisplayed(@NotNull final By elementLocated) {
         try {
-            softAssert.assertTrue(ElementState.isDisplayed(elementLocated), "Element located with {" + elementLocated.toString() + "} is not displayed");
+            softAssert.assertTrue(Elements.elementState().isDisplayed(elementLocated), "Element located with {" + elementLocated.toString() + "} is not displayed");
             softAssert.assertAll();
             System.out.println("Element located with {" + elementLocated + "} is displayed");
         } catch (Exception e) {

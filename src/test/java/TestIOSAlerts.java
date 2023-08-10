@@ -1,5 +1,4 @@
-import actions.Actions;
-import actions.ElementActions;
+import elements.Elements;
 import assertions.Assertions;
 import driver_manager.DriverInitializer;
 import io.appium.java_client.AppiumBy;
@@ -19,7 +18,7 @@ public class TestIOSAlerts extends DriverInitializer {
 
     @Test
     public void testIOSAlerts() {
-        Actions
+        Elements
                 .elementActions()
                 .click(ALERT_VIEWS_BUTTON)
                 .click(TEXT_ENTRY_BUTTON)
@@ -28,15 +27,15 @@ public class TestIOSAlerts extends DriverInitializer {
                 .sendKeys(TEXT_ENTRY_ALERT_TEXT_BOX, "Ahmed")
                 .click(TEXT_ENTRY_ALERT_OK_BUTTON);
 
-        Actions.elementActions()
+        Elements.elementActions()
                 .click(CONFIRM_CANCEL_ALERT_BUTTON);
         Assertions.hardAssert()
                 .elementDisplayed(CONFIRM_CANCEL_ALERT_MESSAGE_TEXT)
                 .elementTextToBe(CONFIRM_CANCEL_ALERT_MESSAGE_TEXT, "A message should be a short, complete sentence.");
-        Actions.elementActions()
+        Elements.elementActions()
                 .click(CONFIRM_CANCEL_ALERT_CANCEL_BUTTON);
         Assertions.hardAssert().elementNotDisplayed(CONFIRM_CANCEL_ALERT_MESSAGE_TEXT);
-        Actions.elementActions()
+        Elements.elementActions()
                 .click(CONFIRM_CANCEL_ALERT_BUTTON)
                 .click(CONFIRM_CANCEL_ALERT_CONFIRM_BUTTON);
     }

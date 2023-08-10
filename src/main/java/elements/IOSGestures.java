@@ -1,7 +1,8 @@
-package actions;
+package elements;
 
 import com.google.common.collect.ImmutableMap;
 import driver_manager.DriverManager;
+import exception_handling.ExceptionHandling;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -9,15 +10,15 @@ import org.openqa.selenium.remote.RemoteWebElement;
 import org.testng.Assert;
 import waits.Waits;
 
-public class GestureActions {
-    public GestureActions() {
+public class IOSGestures {
+    public IOSGestures() {
     }
 
     public ElementActions elementActions() {
         return new ElementActions();
     }
 
-    public GestureActions longClick(final By elementLocated, final int durationOfSeconds) {
+    public IOSGestures longClick(final By elementLocated, final int durationOfSeconds) {
         Waits.fluentlyWait().elementToBeClickable(elementLocated);
         try {
             ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: touchAndHold", ImmutableMap.of(
@@ -25,49 +26,49 @@ public class GestureActions {
                     "duration", (durationOfSeconds * 1000)
             ));
         } catch (Exception e) {
-            e.printStackTrace();
+            ExceptionHandling.handleException(e);
         }
         return this;
     }
 
-    public GestureActions doubleClick(final By elementLocated) {
+    public IOSGestures doubleClick(final By elementLocated) {
         Waits.fluentlyWait().elementToBeClickable(elementLocated);
         try {
             ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: doubleClickGesture", ImmutableMap.of(
                     "element", ((RemoteWebElement) ElementActions.findElement(elementLocated)).getId()
             ));
         } catch (Exception e) {
-            e.printStackTrace();
+            ExceptionHandling.handleException(e);
         }
         return this;
     }
 
-    public GestureActions tap(final By elementLocated) {
+    public IOSGestures tap(final By elementLocated) {
         Waits.fluentlyWait().elementToBeClickable(elementLocated);
         try {
             DriverManager.getDriverInstance().executeScript("mobile: tap", ImmutableMap.of(
                     "element", ((RemoteWebElement) ElementActions.findElement(elementLocated)).getId()
             ));
         } catch (Exception e) {
-            e.printStackTrace();
+            ExceptionHandling.handleException(e);
         }
         return this;
 
     }
 
-    public GestureActions tap(final WebElement element) {
+    public IOSGestures tap(final WebElement element) {
         try {
             DriverManager.getDriverInstance().executeScript("mobile: tap", ImmutableMap.of(
                     "element", ((RemoteWebElement) element).getId()
             ));
         } catch (Exception e) {
-            e.printStackTrace();
+            ExceptionHandling.handleException(e);
         }
         return this;
 
     }
 
-    public GestureActions swipe(final By elementLocated, final Direction direction) {
+    public IOSGestures swipe(final By elementLocated, final IOSGestures.Direction direction) {
         try {
             ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: swipe", ImmutableMap.of(
                     "element", ((RemoteWebElement) ElementActions.findElement(elementLocated)).getId(),
@@ -75,13 +76,13 @@ public class GestureActions {
                     "percent", 0.75
             ));
         } catch (Exception e) {
-            e.printStackTrace();
+            ExceptionHandling.handleException(e);
         }
         return this;
 
     }
 
-    public GestureActions swipe(final WebElement element, final Direction direction) {
+    public IOSGestures swipe(final WebElement element, final IOSGestures.Direction direction) {
         try {
             ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: swipe", ImmutableMap.of(
                     "element", ((RemoteWebElement) element).getId(),
@@ -89,13 +90,13 @@ public class GestureActions {
                     "percent", 0.75
             ));
         } catch (Exception e) {
-            e.printStackTrace();
+            ExceptionHandling.handleException(e);
         }
         return this;
 
     }
 
-    public GestureActions scrollToElement(final By elementLocated, final Direction direction) {
+    public IOSGestures scrollToElement(final By elementLocated, final IOSGestures.Direction direction) {
         boolean canScrollMore = false;
         try {
             ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: scroll", ImmutableMap.of(
@@ -103,34 +104,34 @@ public class GestureActions {
                     "direction", direction.toString().toLowerCase()
             ));
         } catch (Exception e) {
-            e.printStackTrace();
+            ExceptionHandling.handleException(e);
         }
         return this;
 
     }
 
-    public static boolean scrollWithCoordinates(final By elementLocated, final Direction direction) {
+    public IOSGestures scrollWithCoordinates(final By elementLocated, final IOSGestures.Direction direction) {
         boolean canScrollMore = false;
         boolean elementDisplayed = false;
         try {
             do {
                 canScrollMore = (Boolean) ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: scroll", ImmutableMap.of(
                         "left", 100, "top", 100, "width", 200, "height", 200,
-                        "direction", direction.toString(),
-                        "percent", 3.0
+                        "direction", direction.toString().toLowerCase(),
+                        "percent", 1.0
                 ));
-                elementDisplayed = ElementActions.findElement(elementLocated).isDisplayed();
+                elementDisplayed = Elements.elementState().isDisplayed(elementLocated);
             } while (canScrollMore && !elementDisplayed);
             {
                 Assert.assertTrue(ElementActions.findElement(elementLocated).isDisplayed());
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            ExceptionHandling.handleException(e);
         }
-        return canScrollMore;
+        return this;
     }
 
-    public GestureActions scrollWithCoordinates(final Direction direction) {
+    public IOSGestures scrollWithCoordinates(final IOSGestures.Direction direction) {
         try {
 
             ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: scroll", ImmutableMap.of(
@@ -139,13 +140,13 @@ public class GestureActions {
                     "percent", 3.0
             ));
         } catch (Exception e) {
-            e.printStackTrace();
+            ExceptionHandling.handleException(e);
         }
         return this;
 
     }
 
-    public GestureActions drag(final By elementLocated, final int xEndCoordinate, final int yEndCoordinate) {
+    public IOSGestures drag(final By elementLocated, final int xEndCoordinate, final int yEndCoordinate) {
         Waits.fluentlyWait().elementToBeClickable(elementLocated);
         try {
             ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: dragGesture", ImmutableMap.of(
@@ -154,7 +155,7 @@ public class GestureActions {
                     "endY", yEndCoordinate
             ));
         } catch (Exception e) {
-            e.printStackTrace();
+            ExceptionHandling.handleException(e);
         }
         return this;
 

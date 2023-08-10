@@ -1,23 +1,22 @@
-//package actions;
-//
-//import driver_manager.DriverManager;
-//import waits.Waits;
-//import groovyjarjarantlr4.v4.runtime.misc.NotNull;
-//import io.appium.java_client.AppiumBy;
-//import io.appium.java_client.android.Activity;
-//import org.openqa.selenium.By;
-//import org.openqa.selenium.DeviceRotation;
-//import org.openqa.selenium.ScreenOrientation;
-//
-//public class MobileActions {
-//    public static void startActivity(@NotNull final String appPackage, @NotNull final String appActivity) {
+package elements;
+
+import driver_manager.DriverManager;
+import groovyjarjarantlr4.v4.runtime.misc.NotNull;
+import io.appium.java_client.AppiumBy;
+import org.openqa.selenium.By;
+import org.openqa.selenium.DeviceRotation;
+import org.openqa.selenium.ScreenOrientation;
+import waits.Waits;
+
+public class AndroidActions {
+    //    public static void startActivity(@NotNull final String appPackage, @NotNull final String appActivity) {
 //        try {
 //            DriverManager.getDriverInstance().startActivity(new Activity(appPackage.trim(), appActivity.trim()));
 //        } catch (Exception e) {
 //            e.printStackTrace();
 //        }
 //    }
-//
+
 //    public static void scrollIntoView(@NotNull final String elementText) {
 //        try {
 //            ElementActions.findElement(AppiumBy.ByAndroidUIAutomator.androidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\"" + elementText + "\").instance(0))"));
@@ -102,4 +101,4 @@
 //        }
 //        return text;
 //    }
-//}
+}

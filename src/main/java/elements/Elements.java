@@ -1,11 +1,14 @@
-package actions;
+package elements;
 
-public class Actions {
-    public Actions() {
+public class Elements {
+    public Elements() {
     }
 
     public static GestureActions gestureActions() {
         return new GestureActions();
+    }
+    public static TouchActions touchActions() {
+        return new TouchActions();
     }
 
     public static ElementActions elementActions() {

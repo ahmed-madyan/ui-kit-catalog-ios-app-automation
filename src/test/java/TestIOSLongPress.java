@@ -1,4 +1,4 @@
-import actions.Actions;
+import elements.Elements;
 import driver_manager.DriverInitializer;
 import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.By;
@@ -16,11 +16,12 @@ public class TestIOSLongPress extends DriverInitializer {
     private static final By CONFIRM_CANCEL_ALERT_CANCEL_BUTTON = AppiumBy.accessibilityId("Confirm");
     @Test
     public void testIOSLongPress() {
-        Actions
+        Elements
                 .elementActions()
                 .click(Steppers_BUTTON)
                 .click(CUSTOM_INCREMENT_BUTTON)
                 .gestureActions()
+                .iosGestures()
                 .longClick(CUSTOM_INCREMENT_BUTTON, 10);
 
     }

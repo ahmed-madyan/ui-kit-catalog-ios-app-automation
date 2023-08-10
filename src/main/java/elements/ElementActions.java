@@ -1,4 +1,4 @@
-package actions;
+package elements;
 
 import driver_manager.DriverManager;
 import org.openqa.selenium.By;
@@ -13,8 +13,8 @@ public class ElementActions {
     public ElementActions() {
     }
 
-    public static Actions actions() {
-        return new Actions();
+    public static Elements actions() {
+        return new Elements();
     }
     public  GestureActions gestureActions() {
         return new GestureActions();

@@ -1,24 +1,23 @@
 package driver_manager;
 
-import groovyjarjarantlr4.v4.runtime.misc.NotNull;
-import io.appium.java_client.ios.IOSDriver;
-
-import java.util.Set;
+import io.appium.java_client.AppiumDriver;
 
 public class DriverManager {
-    public static IOSDriver getDriverInstance() {
-        return DriverInitializer.getDriver();
-    }
-    public static Set<String> getContextHandles() {
-        return DriverManager.getDriverInstance().getContextHandles();
+    public DriverManager() {
     }
 
-    public static String getCurrentContextHandle() {
-        return DriverManager.getDriverInstance().getContext();
+    public static AppiumDriver getDriverInstance() {
+        return DriverInitializer.getDriver();
     }
-    public static void switchContext(@NotNull final String context) {
-        getDriverInstance().context(context);
+
+    public static driver_manager.AndroidDriver androidDriver() {
+        return new driver_manager.AndroidDriver();
     }
+
+    public static driver_manager.IOSDriver iosDriver() {
+        return new driver_manager.IOSDriver();
+    }
+
 
     protected static void quitDriver() {
         getDriverInstance().quit();

@@ -2,11 +2,13 @@ package waits;
 
 import driver_manager.DriverManager;
 import exception_handling.ExceptionHandling;
+import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.Objects;
 
 public class Explicit {
     public Explicit() {
@@ -93,8 +95,8 @@ public class Explicit {
         String currentContext;
         try {
             do {
-                currentContext = DriverManager.getCurrentContextHandle();
-            } while (!currentContext.equalsIgnoreCase(context));
+                currentContext = ((AndroidDriver) DriverManager.getDriverInstance()).getContext();
+            } while (!Objects.requireNonNull(currentContext).equalsIgnoreCase(context));
         } catch (Exception e) {
             ExceptionHandling.handleException(e);
         }

@@ -1,14 +1,10 @@
+import elements.Elements;
+import elements.GestureActions;
 import driver_manager.DriverInitializer;
-import driver_manager.DriverManager;
+import elements.IOSGestures;
 import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.RemoteWebElement;
 import org.testng.annotations.Test;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class TestIOSScroll extends DriverInitializer {
 
@@ -21,28 +17,15 @@ public class TestIOSScroll extends DriverInitializer {
     private static final By CONFIRM_CANCEL_ALERT_CANCEL_BUTTON = AppiumBy.accessibilityId("Confirm");
     @Test
     public void testIOSScroll() throws InterruptedException {
-//        Actions
-//                .gestureActions()
-//                .scrollToElement(Web_View_BUTTON, GestureActions.Direction.DOWN)
-//                .elementActions().click(Web_View_BUTTON);
-//
 
-//        Map<String, String> objectsMap = new HashMap<>();
-//        objectsMap.put("element", ((RemoteWebElement) DriverManager.getDriverInstance().findElement(Web_View_BUTTON)).getId());
-//        objectsMap.put("direction", "down");
-//        DriverManager.getDriverInstance().executeScript("mobile: scroll", objectsMap);
+//        Elements.touchActions().scrollToElement(Web_View_BUTTON);
 
-
-        WebElement element = DriverManager.getDriverInstance().findElement(Web_View_BUTTON);
-
-        JavascriptExecutor js = (JavascriptExecutor) DriverManager.getDriverInstance();
-
-        HashMap<String, String> scrollObjects = new HashMap<>();
-        scrollObjects.put("element", ((RemoteWebElement) element).getId());
-        scrollObjects.put("direction", "down");
-        DriverManager.getDriverInstance().executeScript("mobile: scroll", scrollObjects);
-
-
+        Elements
+                .gestureActions()
+                .iosGestures()
+                .scrollWithCoordinates(Web_View_BUTTON, IOSGestures.Direction.DOWN)
+                .elementActions()
+                .click(Web_View_BUTTON);
         Thread.sleep(10000);
     }
 }
