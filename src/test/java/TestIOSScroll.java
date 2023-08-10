@@ -1,6 +1,5 @@
-import elements.Elements;
-import elements.GestureActions;
 import driver_manager.DriverInitializer;
+import elements.Elements;
 import elements.IOSGestures;
 import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.By;
@@ -17,9 +16,6 @@ public class TestIOSScroll extends DriverInitializer {
     private static final By CONFIRM_CANCEL_ALERT_CANCEL_BUTTON = AppiumBy.accessibilityId("Confirm");
     @Test
     public void testIOSScroll() throws InterruptedException {
-
-//        Elements.touchActions().scrollToElement(Web_View_BUTTON);
-
         Elements
                 .gestureActions()
                 .iosGestures()
