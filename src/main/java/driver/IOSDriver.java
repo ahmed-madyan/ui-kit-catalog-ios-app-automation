@@ -1,4 +1,4 @@
-package driver_manager;
+package driver;
 
 public class IOSDriver {
     public IOSDriver() {

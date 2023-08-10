@@ -1,6 +1,7 @@
 package elements;
 
-import driver_manager.DriverManager;
+import driver.DriverManager;
+import exception_handling.ExceptionHandling;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -25,7 +26,7 @@ public class ElementActions {
             Waits.fluentlyWait().visibilityOfElementLocated(elementLocated);
             element = DriverManager.getDriverInstance().findElement(elementLocated);
         } catch (Exception e) {
-            e.printStackTrace();
+            ExceptionHandling.handleException(e);
         }
         return element;
     }
@@ -36,7 +37,7 @@ public class ElementActions {
             Waits.fluentlyWait().visibilityOfElementLocated(elementLocated);
             element = DriverManager.getDriverInstance().findElements(elementLocated);
         } catch (Exception e) {
-            e.printStackTrace();
+            ExceptionHandling.handleException(e);
         }
         return element;
     }
@@ -45,7 +46,7 @@ public class ElementActions {
         try {
             findElement(elementLocated).click();
         } catch (Exception e) {
-            e.printStackTrace();
+            ExceptionHandling.handleException(e);
         }
         return this;
     }
@@ -54,7 +55,7 @@ public class ElementActions {
         try {
             findElement(elementLocated).sendKeys(keyToSend);
         } catch (Exception e) {
-            e.printStackTrace();
+            ExceptionHandling.handleException(e);
         }
         return this;
     }
@@ -65,7 +66,7 @@ public class ElementActions {
             Waits.fluentlyWait().visibilityOfElementLocated(elementLocated);
             elementText = findElement(elementLocated).getText();
         } catch (Exception e) {
-            e.printStackTrace();
+            ExceptionHandling.handleException(e);
         }
         return elementText;
     }
@@ -76,7 +77,7 @@ public class ElementActions {
             Waits.fluentlyWait().visibilityOfElementLocated(elementLocated);
             attributeValue = findElement(elementLocated).getAttribute(attribute);
         } catch (Exception e) {
-            e.printStackTrace();
+            ExceptionHandling.handleException(e);
         }
         return attributeValue;
     }
@@ -95,7 +96,7 @@ public class ElementActions {
                             "\nRight Location X: " + rightLocationX +
                             "\nMiddle Location X: " + middleLocationX);
         } catch (Exception e) {
-            e.printStackTrace();
+            ExceptionHandling.handleException(e);
         }
         return middleLocationX;
     }
@@ -114,7 +115,7 @@ public class ElementActions {
                             "\nLower Location Y: " + lowerLocationY +
                             "\nMiddle Location Y: " + middleLocationY);
         } catch (Exception e) {
-            e.printStackTrace();
+            ExceptionHandling.handleException(e);
         }
         return middleLocationY;
     }
@@ -126,7 +127,7 @@ public class ElementActions {
             elementLocationX = findElement(elementLocated).getLocation().getX();
             System.out.println("Element Location X: " + elementLocationX);
         } catch (Exception e) {
-            e.printStackTrace();
+            ExceptionHandling.handleException(e);
         }
         return elementLocationX;
     }
@@ -138,7 +139,7 @@ public class ElementActions {
             elementWidth = findElement(elementLocated).getSize().getWidth();
             System.out.println("Element width: " + elementWidth);
         } catch (Exception e) {
-            e.printStackTrace();
+            ExceptionHandling.handleException(e);
         }
         return elementWidth;
     }
@@ -150,7 +151,7 @@ public class ElementActions {
             elementLocationY = findElement(elementLocated).getLocation().getY();
             System.out.println("Element Location Y: " + elementLocationY);
         } catch (Exception e) {
-            e.printStackTrace();
+            ExceptionHandling.handleException(e);
         }
         return elementLocationY;
     }
@@ -162,7 +163,7 @@ public class ElementActions {
             elementHeight = findElement(elementLocated).getSize().getHeight();
             System.out.println("Element height: " + elementHeight);
         } catch (Exception e) {
-            e.printStackTrace();
+            ExceptionHandling.handleException(e);
         }
         return elementHeight;
     }
@@ -172,7 +173,7 @@ public class ElementActions {
             Waits.fluentlyWait().visibilityOfElementLocated(elementLocated);
             new Select(findElement(elementLocated)).selectByVisibleText(visibleText);
         } catch (Exception e) {
-            e.printStackTrace();
+            ExceptionHandling.handleException(e);
         }
     }
 
@@ -181,7 +182,7 @@ public class ElementActions {
             Waits.fluentlyWait().visibilityOfElementLocated(elementLocated);
             ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("arguments[0].style.border='3px solid red'", ElementActions.findElement(elementLocated));
         } catch (Exception e) {
-            e.printStackTrace();
+            ExceptionHandling.handleException(e);
         }
     }
 }

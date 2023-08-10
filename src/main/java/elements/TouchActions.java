@@ -1,6 +1,6 @@
 package elements;
 
-import driver_manager.DriverManager;
+import driver.DriverManager;
 import io.appium.java_client.PerformsTouchActions;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.offset.PointOption;

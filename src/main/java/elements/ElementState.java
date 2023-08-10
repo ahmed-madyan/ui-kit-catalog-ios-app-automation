@@ -1,6 +1,7 @@
 package elements;
 
-import driver_manager.DriverManager;
+import driver.DriverManager;
+import exception_handling.ExceptionHandling;
 import org.openqa.selenium.By;
 import waits.Waits;
 
@@ -16,7 +17,7 @@ public class ElementState {
                 isCheckable = true;
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            ExceptionHandling.handleException(e);
         }
         return isCheckable;
     }
@@ -29,7 +30,7 @@ public class ElementState {
                 isChecked = true;
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            ExceptionHandling.handleException(e);
         }
         return isChecked;
     }
@@ -42,7 +43,7 @@ public class ElementState {
                 isClickable = true;
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            ExceptionHandling.handleException(e);
         }
         return isClickable;
     }
@@ -55,7 +56,7 @@ public class ElementState {
                 isEnabled = true;
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            ExceptionHandling.handleException(e);
         }
         return isEnabled;
     }
@@ -68,7 +69,7 @@ public class ElementState {
                 isFocusable = true;
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            ExceptionHandling.handleException(e);
         }
         return isFocusable;
     }
@@ -81,7 +82,7 @@ public class ElementState {
                 isFocused = true;
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            ExceptionHandling.handleException(e);
         }
         return isFocused;
     }
@@ -94,7 +95,7 @@ public class ElementState {
                 isLongClickable = true;
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            ExceptionHandling.handleException(e);
         }
         return isLongClickable;
     }
@@ -107,7 +108,7 @@ public class ElementState {
                 isPassword = true;
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            ExceptionHandling.handleException(e);
         }
         return isPassword;
     }
@@ -120,7 +121,7 @@ public class ElementState {
                 isScrollable = true;
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            ExceptionHandling.handleException(e);
         }
         return isScrollable;
     }
@@ -133,7 +134,7 @@ public class ElementState {
                 isSelected = true;
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            ExceptionHandling.handleException(e);
         }
         return isSelected;
     }
@@ -145,7 +146,7 @@ public class ElementState {
                 isDisplayed = true;
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            ExceptionHandling.handleException(e);
         }
         return isDisplayed;
     }

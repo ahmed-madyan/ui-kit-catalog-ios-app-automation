@@ -1,4 +1,4 @@
-package driver_manager;
+package driver;
 
 import io.appium.java_client.AppiumDriver;
 
@@ -10,12 +10,12 @@ public class DriverManager {
         return DriverInitializer.getDriver();
     }
 
-    public static driver_manager.AndroidDriver androidDriver() {
-        return new driver_manager.AndroidDriver();
+    public static driver.AndroidDriver androidDriver() {
+        return new driver.AndroidDriver();
     }
 
-    public static driver_manager.IOSDriver iosDriver() {
-        return new driver_manager.IOSDriver();
+    public static driver.IOSDriver iosDriver() {
+        return new driver.IOSDriver();
     }
 
 

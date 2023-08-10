@@ -1,7 +1,7 @@
 package elements;
 
 import com.google.common.collect.ImmutableMap;
-import driver_manager.DriverManager;
+import driver.DriverManager;
 import exception_handling.ExceptionHandling;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;

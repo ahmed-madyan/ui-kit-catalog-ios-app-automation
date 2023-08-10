@@ -1,6 +1,7 @@
 package elements;
 
-import driver_manager.DriverManager;
+import driver.DriverManager;
+import exception_handling.ExceptionHandling;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
 
@@ -9,7 +10,7 @@ public class KeyEvents {
         try {
             DriverManager.androidDriver().getAndroidDriver().pressKey(new KeyEvent(AndroidKey.ENTER));
         } catch (Exception e) {
-            e.printStackTrace();
+            ExceptionHandling.handleException(e);
         }
     }
 
@@ -17,7 +18,7 @@ public class KeyEvents {
         try {
             DriverManager.androidDriver().getAndroidDriver().pressKey(new KeyEvent(AndroidKey.HOME));
         } catch (Exception e) {
-            e.printStackTrace();
+            ExceptionHandling.handleException(e);
         }
     }
 
@@ -25,7 +26,7 @@ public class KeyEvents {
         try {
             DriverManager.androidDriver().getAndroidDriver().pressKey(new KeyEvent(AndroidKey.BACK));
         } catch (Exception e) {
-            e.printStackTrace();
+            ExceptionHandling.handleException(e);
         }
     }
 }

@@ -1,4 +1,4 @@
-import driver_manager.DriverInitializer;
+import driver.DriverInitializer;
 import elements.Elements;
 import elements.IOSGestures;
 import io.appium.java_client.AppiumBy;

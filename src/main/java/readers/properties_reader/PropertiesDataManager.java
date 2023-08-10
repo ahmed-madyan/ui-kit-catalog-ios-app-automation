@@ -19,7 +19,7 @@ public class PropertiesDataManager {
             properties.load(fileInputStream);
         } catch (Exception e) {
             System.out.println(e.getMessage() + "\n" + Arrays.toString(e.getStackTrace()) + "\n");
-            e.printStackTrace();
+            ExceptionHandling.handleException(e);
         }
         return properties;
     }
@@ -35,7 +35,7 @@ public class PropertiesDataManager {
             properties.store(fileOutputStream, null);
         } catch (Exception e) {
             System.out.println(e.getMessage() + "\n" + e.getMessage() + "\n");
-            e.printStackTrace();
+            ExceptionHandling.handleException(e);
         }
     }
 
@@ -62,7 +62,7 @@ public class PropertiesDataManager {
             properties.store(fileOutputStream, null);
         } catch (Exception e) {
             System.out.println(e.getMessage() + "\n" + e.getMessage() + "\n");
-            e.printStackTrace();
+            ExceptionHandling.handleException(e);
         }
     }
 
@@ -79,7 +79,7 @@ public class PropertiesDataManager {
             conf.save();
         } catch (Exception e) {
             System.out.println(e.getMessage() + "\n" + e.getMessage() + "\n");
-            e.printStackTrace();
+            ExceptionHandling.handleException(e);
         }
     }
 

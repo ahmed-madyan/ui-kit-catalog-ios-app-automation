@@ -1,6 +1,6 @@
 package waits;
 
-import driver_manager.DriverManager;
+import driver.DriverManager;
 import exception_handling.ExceptionHandling;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
