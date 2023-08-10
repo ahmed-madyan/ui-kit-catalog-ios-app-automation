@@ -4,8 +4,8 @@
 <suite name="Regression MobileBrowserTest Suite">
     <test name="Regression MobileBrowserTest">
         <classes>
-<!--            <class name="TestIOSAlerts"/>-->
-<!--            <class name="TestIOSLongPress"/>-->
+            <class name="TestIOSAlerts"/>
+            <class name="TestIOSLongPress"/>
             <class name="TestIOSScroll"/>
         </classes>
     </test>
