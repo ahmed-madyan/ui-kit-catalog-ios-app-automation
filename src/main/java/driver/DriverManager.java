@@ -10,14 +10,14 @@ public class DriverManager {
         return DriverInitializer.getDriver();
     }
 
-    public static driver.AndroidDriver androidDriver() {
-        return new driver.AndroidDriver();
+    public static Android androidDriver() {
+        return new Android();
     }
 
-    public static driver.IOSDriver iosDriver() {
-        return new driver.IOSDriver();
+    public static IOS iosDriver() {
+        return new IOS();
     }
-    
+
     protected static void quitDriver() {
         getDriverInstance().quit();
     }

@@ -13,7 +13,7 @@ import waits.Waits;
 public class AndroidActions {
     public static void startActivity(@NotNull final String appPackage, @NotNull final String appActivity) {
         try {
-            DriverManager.androidDriver().getAndroidDriver().startActivity(new Activity(appPackage.trim(), appActivity.trim()));
+            DriverManager.androidDriver().getDriverInstance().startActivity(new Activity(appPackage.trim(), appActivity.trim()));
         } catch (Exception e) {
             ExceptionHandling.handleException(e);
         }
@@ -38,7 +38,7 @@ public class AndroidActions {
 
     public static void setClipboardText(@NotNull final String text) {
         try {
-            DriverManager.androidDriver().getAndroidDriver().setClipboardText(text);
+            DriverManager.androidDriver().getDriverInstance().setClipboardText(text);
         } catch (Exception e) {
             ExceptionHandling.handleException(e);
         }
@@ -47,7 +47,7 @@ public class AndroidActions {
     public static String getClipboardText() {
         String clipboardText = null;
         try {
-            clipboardText = DriverManager.androidDriver().getAndroidDriver().getClipboardText();
+            clipboardText = DriverManager.androidDriver().getDriverInstance().getClipboardText();
         } catch (Exception e) {
             ExceptionHandling.handleException(e);
         }
@@ -56,7 +56,7 @@ public class AndroidActions {
 
     public static void rotateRight() {
         try {
-            DriverManager.androidDriver().getAndroidDriver().rotate(new DeviceRotation(0, 0, 90));
+            DriverManager.androidDriver().getDriverInstance().rotate(new DeviceRotation(0, 0, 90));
         } catch (Exception e) {
             ExceptionHandling.handleException(e);
         }
@@ -64,7 +64,7 @@ public class AndroidActions {
 
     public static void rotateLeft() {
         try {
-            DriverManager.androidDriver().getAndroidDriver().rotate(new DeviceRotation(0, 0, 270));
+            DriverManager.androidDriver().getDriverInstance().rotate(new DeviceRotation(0, 0, 270));
         } catch (Exception e) {
             ExceptionHandling.handleException(e);
         }
@@ -72,7 +72,7 @@ public class AndroidActions {
 
     public static void rotateCustomAngle(@NotNull final int angle) {
         try {
-            DriverManager.androidDriver().getAndroidDriver().rotate(new DeviceRotation(0, 0, angle));
+            DriverManager.androidDriver().getDriverInstance().rotate(new DeviceRotation(0, 0, angle));
         } catch (Exception e) {
             ExceptionHandling.handleException(e);
         }
@@ -80,7 +80,7 @@ public class AndroidActions {
 
     public static void setPortraitMode() {
         try {
-            DriverManager.androidDriver().getAndroidDriver().rotate(ScreenOrientation.PORTRAIT);
+            DriverManager.androidDriver().getDriverInstance().rotate(ScreenOrientation.PORTRAIT);
         } catch (Exception e) {
             ExceptionHandling.handleException(e);
         }
@@ -88,7 +88,7 @@ public class AndroidActions {
 
     public static void setLandscapeMode() {
         try {
-            DriverManager.androidDriver().getAndroidDriver().rotate(ScreenOrientation.LANDSCAPE);
+            DriverManager.androidDriver().getDriverInstance().rotate(ScreenOrientation.LANDSCAPE);
         } catch (Exception e) {
             ExceptionHandling.handleException(e);
         }
@@ -97,7 +97,7 @@ public class AndroidActions {
     public static String getToastMessage() {
         String text = null;
         try {
-            text = DriverManager.androidDriver().getAndroidDriver().findElement(AppiumBy.xpath("(//android.widget.Toast)[1]")).getAttribute("name");
+            text = DriverManager.androidDriver().getDriverInstance().findElement(AppiumBy.xpath("(//android.widget.Toast)[1]")).getAttribute("name");
         } catch (Exception e) {
             ExceptionHandling.handleException(e);
         }
