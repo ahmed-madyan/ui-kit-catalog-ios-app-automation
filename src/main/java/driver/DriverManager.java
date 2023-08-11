@@ -17,8 +17,7 @@ public class DriverManager {
     public static driver.IOSDriver iosDriver() {
         return new driver.IOSDriver();
     }
-
-
+    
     protected static void quitDriver() {
         getDriverInstance().quit();
     }
