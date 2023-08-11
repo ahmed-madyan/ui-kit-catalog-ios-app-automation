@@ -26,8 +26,8 @@ public class BrowserStackInitializer {
     private static AppiumDriver appiumDriver;
 
     protected static AppiumDriver browserStackInitialization() {
-        System.out.println("TargetRemoteExecution: " + PropertiesConfigurations.getTargetRemoteExecution());
-        switch (PropertiesConfigurations.getTargetRemoteExecution()) {
+        System.out.println("TargetRemoteExecution: " + PropertiesConfigurations.getExecutionAddressConfig());
+        switch (PropertiesConfigurations.getExecutionAddressConfig()) {
             case "manual" -> setupManually();
             case "yml" -> setupYML();
             default -> {
@@ -84,7 +84,7 @@ public class BrowserStackInitializer {
         desiredCapabilities.setCapability("bstack:options", browserstackOptions);
         /**********************************************************************************************************/
         //Initialize the driver and launch the app
-        switch (PropertiesConfigurations.getTargetOperatingSystem()) {
+        switch (PropertiesConfigurations.getPlatformName()) {
             case "android" -> {
                 try {
                     appiumDriver = new AndroidDriver(new URL(browserStack_ServerURL), desiredCapabilities);
@@ -107,7 +107,7 @@ public class BrowserStackInitializer {
     }
 
     private static void setupYML() {
-        switch (PropertiesConfigurations.getTargetOperatingSystem()) {
+        switch (PropertiesConfigurations.getPlatformName()) {
             case "android" -> {
                 try {
                     MutableCapabilities capabilities = new UiAutomator2Options();

@@ -11,7 +11,7 @@ public class DriverInitializer {
     @BeforeClass(alwaysRun = true)
     protected void initializeDriver() {
         PropertiesConfigurations.setConfigProperties();
-        System.out.println("Execution Platform: " + PropertiesConfigurations.getExecution_Platform());
+        System.out.println("Execution Platform: " + PropertiesConfigurations.getExecutionAddress());
         setDriver(BrowserStackInitializer.browserStackInitialization());
     }
 

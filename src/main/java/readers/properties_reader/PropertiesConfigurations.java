@@ -1,16 +1,16 @@
 package readers.properties_reader;
 
 public class PropertiesConfigurations {
-    private static String execution_Platform;
-    private static String targetRemoteExecution;
-    private static String targetOperatingSystem;
+    private static String executionAddress;
+    private static String executionAddressConfig;
+    private static String platformName;
 
 
 
     public static void setConfigProperties() {
-        setExecution_Platform(PropertiesDataManager.getProperty("executionPlatform", PropertiesDataManager.Capability.EXECUTION));
-        setTargetRemoteExecution(PropertiesDataManager.getProperty("targetRemoteExecution", PropertiesDataManager.Capability.EXECUTION));
-        setTargetOperatingSystem(PropertiesDataManager.getProperty("targetOperatingSystem", PropertiesDataManager.Capability.EXECUTION));
+        setExecutionAddress(PropertiesDataManager.getProperty("executionAddress", PropertiesDataManager.Capability.EXECUTION));
+        setExecutionAddressConfig(PropertiesDataManager.getProperty("executionAddressConfig", PropertiesDataManager.Capability.EXECUTION));
+        setPlatformName(PropertiesDataManager.getProperty("platformName", PropertiesDataManager.Capability.EXECUTION));
 
     }
 
@@ -18,27 +18,27 @@ public class PropertiesConfigurations {
         return PropertiesDataManager.getProperty(capability, filePath);
     }
 
-    public static String getExecution_Platform() {
-        return execution_Platform;
+    public static String getExecutionAddress() {
+        return executionAddress;
     }
 
-    public static void setExecution_Platform(String execution_Platform) {
-        PropertiesConfigurations.execution_Platform = execution_Platform;
+    public static void setExecutionAddress(String executionAddress) {
+        PropertiesConfigurations.executionAddress = executionAddress;
     }
 
-    public static String getTargetRemoteExecution() {
-        return targetRemoteExecution;
+    public static String getExecutionAddressConfig() {
+        return executionAddressConfig;
     }
 
-    public static void setTargetRemoteExecution(String targetRemoteExecution) {
-        PropertiesConfigurations.targetRemoteExecution = targetRemoteExecution;
+    public static void setExecutionAddressConfig(String executionAddressConfig) {
+        PropertiesConfigurations.executionAddressConfig = executionAddressConfig;
     }
 
-    public static String getTargetOperatingSystem() {
-        return targetOperatingSystem;
+    public static String getPlatformName() {
+        return platformName;
     }
 
-    public static void setTargetOperatingSystem(String targetOperatingSystem) {
-        PropertiesConfigurations.targetOperatingSystem = targetOperatingSystem;
+    public static void setPlatformName(String platformName) {
+        PropertiesConfigurations.platformName = platformName;
     }
 }
