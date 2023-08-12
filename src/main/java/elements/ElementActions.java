@@ -68,7 +68,6 @@ public class ElementActions {
     public static String getText(final By elementLocated) {
         String elementText = null;
         try {
-            Waits.fluentlyWait().visibilityOfElementLocated(elementLocated);
             elementText = findElement(elementLocated).getText();
         } catch (Exception e) {
             ExceptionHandling.handleException(e);
@@ -79,7 +78,6 @@ public class ElementActions {
     public static String getAttribute(final By elementLocated, String attribute) {
         String attributeValue = null;
         try {
-            Waits.fluentlyWait().visibilityOfElementLocated(elementLocated);
             attributeValue = findElement(elementLocated).getAttribute(attribute);
         } catch (Exception e) {
             ExceptionHandling.handleException(e);
@@ -140,7 +138,6 @@ public class ElementActions {
     public static int getElementWidth(final By elementLocated) {
         int elementWidth = 0;
         try {
-            Waits.fluentlyWait().visibilityOfElementLocated(elementLocated);
             elementWidth = findElement(elementLocated).getSize().getWidth();
             System.out.println("Element width: " + elementWidth);
         } catch (Exception e) {
@@ -152,7 +149,6 @@ public class ElementActions {
     public static int getElementLocationY(final By elementLocated) {
         int elementLocationY = 0;
         try {
-            Waits.fluentlyWait().visibilityOfElementLocated(elementLocated);
             elementLocationY = findElement(elementLocated).getLocation().getY();
             System.out.println("Element Location Y: " + elementLocationY);
         } catch (Exception e) {
@@ -164,7 +160,6 @@ public class ElementActions {
     public static int getElementHeight(final By elementLocated) {
         int elementHeight = 0;
         try {
-            Waits.fluentlyWait().visibilityOfElementLocated(elementLocated);
             elementHeight = findElement(elementLocated).getSize().getHeight();
             System.out.println("Element height: " + elementHeight);
         } catch (Exception e) {
@@ -175,7 +170,6 @@ public class ElementActions {
 
     public static void selectByVisibleText(final By elementLocated, final String visibleText) {
         try {
-            Waits.fluentlyWait().visibilityOfElementLocated(elementLocated);
             new Select(findElement(elementLocated)).selectByVisibleText(visibleText);
         } catch (Exception e) {
             ExceptionHandling.handleException(e);
@@ -184,7 +178,6 @@ public class ElementActions {
 
     public static void highlightWebElementLocated(final By elementLocated) {
         try {
-            Waits.fluentlyWait().visibilityOfElementLocated(elementLocated);
             ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("arguments[0].style.border='3px solid red'", ElementActions.findElement(elementLocated));
         } catch (Exception e) {
             ExceptionHandling.handleException(e);

@@ -12,7 +12,6 @@ public class ElementState {
     public  boolean isCheckable(final By elementLocated) {
         boolean isCheckable = false;
         try {
-            Waits.fluentlyWait().visibilityOfElementLocated(elementLocated);
             if (ElementActions.getAttribute(elementLocated, "checkable").equals("true")) {
                 isCheckable = true;
             }
@@ -25,7 +24,6 @@ public class ElementState {
     public  boolean isChecked(final By elementLocated) {
         boolean isChecked = false;
         try {
-            Waits.fluentlyWait().visibilityOfElementLocated(elementLocated);
             if (ElementActions.getAttribute(elementLocated, "checked").equals("true")) {
                 isChecked = true;
             }
@@ -38,7 +36,6 @@ public class ElementState {
     public  boolean isClickable(final By elementLocated) {
         boolean isClickable = false;
         try {
-            Waits.fluentlyWait().visibilityOfElementLocated(elementLocated);
             if (ElementActions.getAttribute(elementLocated, "clickable").equals("true")) {
                 isClickable = true;
             }
@@ -51,7 +48,6 @@ public class ElementState {
     public  boolean isEnabled(final By elementLocated) {
         boolean isEnabled = false;
         try {
-            Waits.fluentlyWait().visibilityOfElementLocated(elementLocated);
             if (ElementActions.findElement(elementLocated).isEnabled()) {
                 isEnabled = true;
             }
@@ -64,7 +60,6 @@ public class ElementState {
     public  boolean isFocusable(final By elementLocated) {
         boolean isFocusable = false;
         try {
-            Waits.fluentlyWait().visibilityOfElementLocated(elementLocated);
             if (ElementActions.findElement(elementLocated).getAttribute("focusable").equals("true")) {
                 isFocusable = true;
             }
@@ -77,7 +72,6 @@ public class ElementState {
     public  boolean isFocused(final By elementLocated) {
         boolean isFocused = false;
         try {
-            Waits.fluentlyWait().visibilityOfElementLocated(elementLocated);
             if (ElementActions.findElement(elementLocated).getAttribute("focused").equals("true")) {
                 isFocused = true;
             }
@@ -90,7 +84,6 @@ public class ElementState {
     public  boolean isLongClickable(final By elementLocated) {
         boolean isLongClickable = false;
         try {
-            Waits.fluentlyWait().visibilityOfElementLocated(elementLocated);
             if (ElementActions.findElement(elementLocated).getAttribute("long-clickable").equals("true")) {
                 isLongClickable = true;
             }
@@ -103,7 +96,6 @@ public class ElementState {
     public  boolean isPassword(final By elementLocated) {
         boolean isPassword = false;
         try {
-            Waits.fluentlyWait().visibilityOfElementLocated(elementLocated);
             if (ElementActions.findElement(elementLocated).getAttribute("password").equals("true")) {
                 isPassword = true;
             }
@@ -116,7 +108,6 @@ public class ElementState {
     public  boolean isScrollable(final By elementLocated) {
         boolean isScrollable = false;
         try {
-            Waits.fluentlyWait().visibilityOfElementLocated(elementLocated);
             if (ElementActions.findElement(elementLocated).getAttribute("scrollable").equals("true")) {
                 isScrollable = true;
             }
@@ -129,7 +120,6 @@ public class ElementState {
     public  boolean isSelected(final By elementLocated) {
         boolean isSelected = false;
         try {
-            Waits.fluentlyWait().visibilityOfElementLocated(elementLocated);
             if (ElementActions.findElement(elementLocated).isSelected()) {
                 isSelected = true;
             }
@@ -142,7 +132,7 @@ public class ElementState {
     public  boolean isDisplayed(final By elementLocated) {
         boolean isDisplayed = false;
         try {
-            if (DriverManager.getDriverInstance().findElement(elementLocated).isDisplayed()) {
+            if (ElementActions.findElement(elementLocated).isDisplayed()) {
                 isDisplayed = true;
             }
         } catch (Exception e) {
