@@ -4,10 +4,9 @@ public class GestureActions {
     public GestureActions() {
     }
 
-    public ElementActions elementActions() {
-        return new ElementActions();
+    public static TouchActions touchActions() {
+        return new TouchActions();
     }
-
     public IOSGestures iosGestures() {
         return new IOSGestures();
     }

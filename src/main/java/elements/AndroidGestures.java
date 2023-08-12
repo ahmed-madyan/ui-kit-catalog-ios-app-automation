@@ -14,6 +14,13 @@ public class AndroidGestures {
     public AndroidGestures() {
     }
 
+    public ElementActions elementActions() {
+        return new ElementActions();
+    }
+
+    public ElementState elementState() {
+        return new ElementState();
+    }
 
     public AndroidGestures longClick(final By elementLocated, final int durationOfSeconds) {
         Waits.fluentlyWait().elementToBeClickable(elementLocated);

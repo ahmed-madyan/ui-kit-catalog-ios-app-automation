@@ -4,11 +4,11 @@ public class MobileActions {
     public MobileActions() {
     }
 
-    public static AndroidActions androidActions() {
+    public AndroidActions androidActions() {
         return new AndroidActions();
     }
 
-    public static IOSActions iosActions() {
+    public IOSActions iosActions() {
         return new IOSActions();
     }
 }
