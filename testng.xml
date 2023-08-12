@@ -7,6 +7,7 @@
             <class name="TestIOSAlerts"/>
             <class name="TestIOSLongPress"/>
             <class name="TestIOSScroll"/>
+            <class name="TestIOSPicker"/>
         </classes>
     </test>
 </suite>

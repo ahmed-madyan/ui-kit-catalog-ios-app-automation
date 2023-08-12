@@ -1,21 +1,23 @@
 import driver.DriverInitializer;
+import elements.Elements;
 import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
 public class TestIOSPicker extends DriverInitializer {
     private static final By PICKER_VIEW_BUTTON = AppiumBy.accessibilityId("Picker View");
-    private static final By TEXT_ENTRY_BUTTON = AppiumBy.iOSClassChain("**/XCUIElementTypeStaticText[`name=='Text Entry'`]");
-    private static final By TEXT_ENTRY_ALERT_TEXT_BOX = AppiumBy.iOSNsPredicateString("type == 'XCUIElementTypeTextField'");
-    private static final By TEXT_ENTRY_ALERT_OK_BUTTON = AppiumBy.accessibilityId("OK");
-    private static final By TEXT_ENTRY_ALERT_Cancel_BUTTON = AppiumBy.accessibilityId("Cancel");
-    private static final By CONFIRM_CANCEL_ALERT_BUTTON = AppiumBy.accessibilityId("Confirm / Cancel");
-    private static final By CONFIRM_CANCEL_ALERT_MESSAGE_TEXT = AppiumBy.iOSNsPredicateString("name BEGINSWITH[c] 'A message'");
-    private static final By CONFIRM_CANCEL_ALERT_CONFIRM_BUTTON = AppiumBy.accessibilityId("Cancel");
-    private static final By CONFIRM_CANCEL_ALERT_CANCEL_BUTTON = AppiumBy.accessibilityId("Confirm");
-
+    private static final By RED_PICKER = AppiumBy.accessibilityId("Red color component value");
+    private static final By GREEN_PICKER = AppiumBy.accessibilityId("Green color component value");
+    private static final By BLUE_PICKER = AppiumBy.accessibilityId("Blue color component value");
     @Test
     public void testIOSPicker() {
-
+        Elements
+                .elementActions()
+                .click(PICKER_VIEW_BUTTON)
+                .mobileActions()
+                .iosActions()
+                .setPicker(RED_PICKER, "55")
+                .setPicker(GREEN_PICKER, "140")
+                .setPicker(BLUE_PICKER, "50");
     }
 }

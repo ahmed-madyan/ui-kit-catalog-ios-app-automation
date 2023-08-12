@@ -20,6 +20,11 @@ public class ElementActions {
     public  GestureActions gestureActions() {
         return new GestureActions();
     }
+
+    public MobileActions mobileActions() {
+        return new MobileActions();
+    }
+
     public static WebElement findElement(final By elementLocated) {
         WebElement element = null;
         try {

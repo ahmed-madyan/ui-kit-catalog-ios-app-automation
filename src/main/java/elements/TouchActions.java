@@ -10,6 +10,13 @@ public class TouchActions {
     public TouchActions() {
     }
 
+    public ElementActions elementActions() {
+        return new ElementActions();
+    }
+
+    public ElementState elementState() {
+        return new ElementState();
+    }
 
     public void scrollToElement(By elementLocator) {
 //        touchActions.scrollToElement(DriverManager.getDriverInstance().findElement(elementLocator)).build().perform();

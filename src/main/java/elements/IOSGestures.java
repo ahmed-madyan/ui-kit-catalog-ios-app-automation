@@ -18,6 +18,9 @@ public class IOSGestures {
         return new ElementActions();
     }
 
+    public ElementState elementState() {
+        return new ElementState();
+    }
     public IOSGestures longClick(final By elementLocated, final int durationOfSeconds) {
         Waits.fluentlyWait().elementToBeClickable(elementLocated);
         try {
