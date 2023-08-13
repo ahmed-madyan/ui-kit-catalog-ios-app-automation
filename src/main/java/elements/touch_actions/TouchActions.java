@@ -42,9 +42,6 @@ public class TouchActions {
 
     public TouchActions longPress(By elementLocated, int duration) {
         try {
-//            touchActions
-//                    .longPress(LongPressOptions.longPressOptions().withElement(ElementOption.element(ElementActions.findElement(elementLocated))).withDuration(Duration.ofSeconds(duration))).perform();
-
             touchActions
                     .longPress(ElementOption.element(ElementActions.findElement(elementLocated)))
                     .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(duration)))
