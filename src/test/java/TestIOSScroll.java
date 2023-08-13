@@ -16,10 +16,15 @@ public class TestIOSScroll extends DriverInitializer {
     private static final By CONFIRM_CANCEL_ALERT_CANCEL_BUTTON = AppiumBy.accessibilityId("Confirm");
     @Test
     public void testIOSScroll() throws InterruptedException {
+//        Elements
+//                .gestureActions()
+//                .iosGestures()
+//                .scrollWithCoordinates(Web_View_BUTTON, IOSGestures.Direction.DOWN)
+//                .elementActions()
+//                .click(Web_View_BUTTON);
         Elements
-                .gestureActions()
-                .iosGestures()
-                .scrollWithCoordinates(Web_View_BUTTON, IOSGestures.Direction.DOWN)
+                .touchActions()
+                .scrollToElement(Web_View_BUTTON)
                 .elementActions()
                 .click(Web_View_BUTTON);
         Thread.sleep(10000);
