@@ -1,6 +1,5 @@
 import driver.DriverInitializer;
 import elements.Elements;
-import elements.gesture_actions.IOSGestures;
 import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
@@ -14,6 +13,8 @@ public class TestIOSScroll extends DriverInitializer {
     private static final By CONFIRM_CANCEL_ALERT_MESSAGE_TEXT = AppiumBy.iOSNsPredicateString("name BEGINSWITH[c] 'A message'");
     private static final By CONFIRM_CANCEL_ALERT_CONFIRM_BUTTON = AppiumBy.accessibilityId("Cancel");
     private static final By CONFIRM_CANCEL_ALERT_CANCEL_BUTTON = AppiumBy.accessibilityId("Confirm");
+    private static final By ALERT_VIEWS_BUTTON = AppiumBy.accessibilityId("Alert Views");
+
     @Test
     public void testIOSScroll() throws InterruptedException {
 //        Elements
@@ -22,8 +23,16 @@ public class TestIOSScroll extends DriverInitializer {
 //                .scrollWithCoordinates(Web_View_BUTTON, IOSGestures.Direction.DOWN)
 //                .elementActions()
 //                .click(Web_View_BUTTON);
+//        Elements
+//                .touchActions()
+//                .scrollToElement(Web_View_BUTTON)
+//                .elementActions()
+//                .click(Web_View_BUTTON);
+
         Elements
                 .touchActions()
+                .scrollToElement(Web_View_BUTTON)
+                .scrollToElement(ALERT_VIEWS_BUTTON)
                 .scrollToElement(Web_View_BUTTON)
                 .elementActions()
                 .click(Web_View_BUTTON);

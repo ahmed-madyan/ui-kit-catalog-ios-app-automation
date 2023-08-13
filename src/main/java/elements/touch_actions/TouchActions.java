@@ -36,13 +36,13 @@ public class TouchActions {
             do {
                 startPageSource = DriverManager.getPageSource();
                 scrollDown();
-                endPageSource = DriverManager.getDriverInstance().getPageSource();
+                endPageSource = DriverManager.getPageSource();
             } while ((!Elements.elementState().isDisplayed(elementLocated)) && (!endPageSource.equals(startPageSource)));
-            if ((!Elements.elementState().isDisplayed(elementLocated)) && (!endPageSource.equals(startPageSource))) {
+            if ((!Elements.elementState().isDisplayed(elementLocated))) {
                 do {
                     startPageSource = DriverManager.getPageSource();
                     scrollUp();
-                    endPageSource = DriverManager.getDriverInstance().getPageSource();
+                    endPageSource = DriverManager.getPageSource();
                 } while ((!Elements.elementState().isDisplayed(elementLocated)) && (!endPageSource.equals(startPageSource)));
             } else System.out.println("The element does not exist on the whole page");
         } catch (Exception e) {
@@ -52,7 +52,7 @@ public class TouchActions {
     }
 
     private static void scrollUp() {
-        int scrollStart = (int) (dimension.getHeight() * 0.1);
+        int scrollStart = (int) (dimension.getHeight() * 0.2);
         int scrollEnd = (int) (dimension.getHeight() * 0.8);
         touchActions.press(PointOption.point(0, scrollStart))
                 .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(1)))
@@ -63,7 +63,7 @@ public class TouchActions {
 
     private static void scrollDown() {
         int scrollStart = (int) (dimension.getHeight() * 0.8);
-        int scrollEnd = (int) (dimension.getHeight() * 0.1);
+        int scrollEnd = (int) (dimension.getHeight() * 0.2);
         touchActions.press(PointOption.point(0, scrollStart))
                 .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(1)))
                 .moveTo(PointOption.point(0, scrollEnd))

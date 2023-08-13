@@ -1,5 +1,6 @@
 package elements.element_actions;
 
+import driver.DriverManager;
 import exception_handling.ExceptionHandling;
 import org.openqa.selenium.By;
 
@@ -130,7 +131,7 @@ public class ElementState {
     public  boolean isDisplayed(final By elementLocated) {
         boolean isDisplayed = false;
         try {
-            if (ElementActions.findElement(elementLocated).isDisplayed()) {
+            if (DriverManager.getDriverInstance().findElement(elementLocated).isDisplayed()) {
                 isDisplayed = true;
             }
         } catch (Exception e) {
