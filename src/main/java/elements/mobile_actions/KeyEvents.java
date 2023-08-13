@@ -1,7 +1,7 @@
 package elements.mobile_actions;
 
 import driver.DriverManager;
-import exception_handling.ExceptionHandling;
+import exceptions.ExceptionHandling;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
 

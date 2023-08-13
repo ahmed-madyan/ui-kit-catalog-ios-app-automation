@@ -1,5 +1,7 @@
 import driver.DriverInitializer;
 import elements.Elements;
+import elements.touch_actions.Direction;
+import elements.touch_actions.TouchActions;
 import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
@@ -31,11 +33,10 @@ public class TestIOSScroll extends DriverInitializer {
 
         Elements
                 .touchActions()
-                .scrollToElement(Web_View_BUTTON)
-                .scrollToElement(ALERT_VIEWS_BUTTON)
-                .scrollToElement(Web_View_BUTTON)
-                .elementActions()
-                .click(Web_View_BUTTON);
+                .scrollToElement(Web_View_BUTTON, Direction.VERTICAL)
+                .scrollToElement(ALERT_VIEWS_BUTTON, Direction.VERTICAL)
+                .scrollToElement(Web_View_BUTTON, Direction.VERTICAL)
+                .tap(Web_View_BUTTON);
         Thread.sleep(10000);
     }
 }

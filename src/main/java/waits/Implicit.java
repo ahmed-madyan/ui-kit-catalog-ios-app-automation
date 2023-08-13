@@ -1,7 +1,7 @@
 package waits;
 
 import driver.DriverManager;
-import exception_handling.ExceptionHandling;
+import exceptions.ExceptionHandling;
 
 import java.time.Duration;
 

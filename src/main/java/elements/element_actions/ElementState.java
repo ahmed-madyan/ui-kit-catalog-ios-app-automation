@@ -1,7 +1,7 @@
 package elements.element_actions;
 
 import driver.DriverManager;
-import exception_handling.ExceptionHandling;
+import exceptions.ExceptionHandling;
 import org.openqa.selenium.By;
 
 public class ElementState {

@@ -5,7 +5,7 @@ import driver.DriverManager;
 import elements.element_actions.ElementActions;
 import elements.element_actions.ElementState;
 import elements.Elements;
-import exception_handling.ExceptionHandling;
+import exceptions.ExceptionHandling;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;

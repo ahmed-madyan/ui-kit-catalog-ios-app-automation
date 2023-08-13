@@ -4,7 +4,8 @@ import driver.DriverManager;
 import elements.Elements;
 import elements.gesture_actions.GestureActions;
 import elements.mobile_actions.MobileActions;
-import exception_handling.ExceptionHandling;
+import elements.touch_actions.TouchActions;
+import exceptions.ExceptionHandling;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -26,6 +27,9 @@ public class ElementActions {
 
     public MobileActions mobileActions() {
         return new MobileActions();
+    }
+    public TouchActions touchActions() {
+        return new TouchActions();
     }
 
     public static WebElement findElement(final By elementLocated) {
