@@ -1,6 +1,6 @@
 import driver.DriverInitializer;
 import elements.Elements;
-import elements.IOSGestures;
+import elements.gesture_actions.IOSGestures;
 import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;

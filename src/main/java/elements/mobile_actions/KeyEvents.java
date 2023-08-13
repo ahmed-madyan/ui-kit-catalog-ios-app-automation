@@ -1,4 +1,4 @@
-package elements;
+package elements.mobile_actions;
 
 import driver.DriverManager;
 import exception_handling.ExceptionHandling;

@@ -1,6 +1,9 @@
-package elements;
+package elements.element_actions;
 
 import driver.DriverManager;
+import elements.Elements;
+import elements.gesture_actions.GestureActions;
+import elements.mobile_actions.MobileActions;
 import exception_handling.ExceptionHandling;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -17,7 +20,7 @@ public class ElementActions {
     public static Elements actions() {
         return new Elements();
     }
-    public  GestureActions gestureActions() {
+    public GestureActions gestureActions() {
         return new GestureActions();
     }
 

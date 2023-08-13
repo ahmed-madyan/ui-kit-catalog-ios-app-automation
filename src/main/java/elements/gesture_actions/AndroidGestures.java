@@ -1,7 +1,9 @@
-package elements;
+package elements.gesture_actions;
 
 import com.google.common.collect.ImmutableMap;
 import driver.DriverManager;
+import elements.element_actions.ElementActions;
+import elements.element_actions.ElementState;
 import exception_handling.ExceptionHandling;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;

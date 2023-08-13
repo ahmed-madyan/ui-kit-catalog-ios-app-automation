@@ -1,9 +1,7 @@
-package elements;
+package elements.element_actions;
 
-import driver.DriverManager;
 import exception_handling.ExceptionHandling;
 import org.openqa.selenium.By;
-import waits.Waits;
 
 public class ElementState {
     public ElementState() {
