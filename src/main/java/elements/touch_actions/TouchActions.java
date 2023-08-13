@@ -27,7 +27,6 @@ public class TouchActions {
     }
 
     private static final TouchAction touchActions = new TouchAction((PerformsTouchActions) DriverManager.getDriverInstance());
-    private static final Dimension dimension = DriverManager.getWindowSize();
 
     public TouchActions tap(By elementLocated) {
         try {
