@@ -1,8 +1,8 @@
 package assertions;
 
 import elements.Elements;
-import elements.ElementActions;
-import exception_handling.ExceptionHandling;
+import elements.element_actions.ElementActions;
+import exceptions.ExceptionHandling;
 import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 import org.openqa.selenium.By;
 import org.testng.asserts.Assertion;

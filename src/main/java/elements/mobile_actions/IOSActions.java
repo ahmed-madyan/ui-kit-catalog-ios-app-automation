@@ -1,6 +1,7 @@
-package elements;
+package elements.mobile_actions;
 
 import assertions.Assertions;
+import elements.Elements;
 import org.openqa.selenium.By;
 
 public class IOSActions {

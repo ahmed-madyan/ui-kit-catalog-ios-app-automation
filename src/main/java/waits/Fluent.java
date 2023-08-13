@@ -1,7 +1,7 @@
 package waits;
 
 import driver.DriverManager;
-import exception_handling.ExceptionHandling;
+import exceptions.ExceptionHandling;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;

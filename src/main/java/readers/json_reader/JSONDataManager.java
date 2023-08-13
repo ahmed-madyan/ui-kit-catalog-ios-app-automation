@@ -3,7 +3,7 @@ package readers.json_reader;
 import io.restassured.path.json.JsonPath;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import exception_handling.ExceptionHandling;
+import exceptions.ExceptionHandling;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;

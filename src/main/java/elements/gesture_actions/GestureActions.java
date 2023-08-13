@@ -1,4 +1,6 @@
-package elements;
+package elements.gesture_actions;
+
+import elements.touch_actions.TouchActions;
 
 public class GestureActions {
     public GestureActions() {

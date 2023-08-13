@@ -1,6 +1,6 @@
 package readers.properties_reader;
 
-import exception_handling.ExceptionHandling;
+import exceptions.ExceptionHandling;
 import org.apache.commons.configuration.PropertiesConfiguration;
 
 import java.io.*;

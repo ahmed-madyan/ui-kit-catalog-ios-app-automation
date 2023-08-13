@@ -1,6 +1,8 @@
 package driver;
 
 import io.appium.java_client.AppiumDriver;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.Point;
 
 public class DriverManager {
     public DriverManager() {
@@ -20,5 +22,17 @@ public class DriverManager {
 
     protected static void quitDriver() {
         getDriverInstance().quit();
+    }
+
+    public static Dimension getWindowSize() {
+        return DriverManager.getDriverInstance().manage().window().getSize();
+    }
+
+    public static Point getPosition() {
+        return DriverManager.getDriverInstance().manage().window().getPosition();
+    }
+
+    public static String getPageSource() {
+        return DriverManager.getDriverInstance().getPageSource();
     }
 }

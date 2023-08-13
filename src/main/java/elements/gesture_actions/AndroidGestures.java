@@ -1,8 +1,10 @@
-package elements;
+package elements.gesture_actions;
 
 import com.google.common.collect.ImmutableMap;
 import driver.DriverManager;
-import exception_handling.ExceptionHandling;
+import elements.element_actions.ElementActions;
+import elements.element_actions.ElementState;
+import exceptions.ExceptionHandling;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -143,12 +145,5 @@ public class AndroidGestures {
             ExceptionHandling.handleException(e);
         }
         return this;
-    }
-
-    public enum Direction {
-        UP,
-        DOWN,
-        RIGHT,
-        LEFT
     }
 }

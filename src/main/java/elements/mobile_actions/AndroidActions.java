@@ -1,14 +1,14 @@
-package elements;
+package elements.mobile_actions;
 
 import driver.DriverManager;
-import exception_handling.ExceptionHandling;
+import elements.element_actions.ElementActions;
+import exceptions.ExceptionHandling;
 import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.Activity;
 import org.openqa.selenium.By;
 import org.openqa.selenium.DeviceRotation;
 import org.openqa.selenium.ScreenOrientation;
-import waits.Waits;
 
 public class AndroidActions {
     public static void startActivity(@NotNull final String appPackage, @NotNull final String appActivity) {

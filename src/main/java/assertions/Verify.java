@@ -1,10 +1,11 @@
 package assertions;
 
 import elements.Elements;
-import elements.ElementActions;
-import exception_handling.ExceptionHandling;
+import elements.element_actions.ElementActions;
+import exceptions.ExceptionHandling;
 import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 import org.openqa.selenium.By;
+import org.testng.asserts.Assertion;
 import org.testng.asserts.SoftAssert;
 
 public class Verify {
@@ -130,6 +131,16 @@ public class Verify {
             System.out.println("Element located with {" + elementLocated + "} is displayed");
         } catch (Exception e) {
            ExceptionHandling.handleException(e);
+        }
+        return this;
+    }
+
+    public Verify elementNotDisplayed(@NotNull final By elementLocated) {
+        try {
+            new Assertion().assertFalse(Elements.elementState().isDisplayed(elementLocated), "Element located with {" + elementLocated.toString() + "} is displayed");
+            System.out.println("Element located with {" + elementLocated + "} is displayed");
+        } catch (Exception e) {
+            ExceptionHandling.handleException(e);
         }
         return this;
     }

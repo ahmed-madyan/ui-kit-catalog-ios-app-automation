@@ -1,4 +1,4 @@
-package elements;
+package elements.mobile_actions;
 
 public class MobileActions {
     public MobileActions() {
