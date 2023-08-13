@@ -17,24 +17,26 @@ class Scroller {
     private static final Dimension dimension = DriverManager.getWindowSize();
 
     protected static void scrollToElement(By elementLocated, Direction direction) {
-        boolean elementDisplayed = false;
+        boolean isElementDisplayed = false;
         switch (direction) {
             case VERTICAL -> {
                 try {
-                    elementDisplayed = scrollDown(elementLocated);
-                    if (!elementDisplayed) {
-                        scrollUp(elementLocated);
-                    } else System.out.println("The element does not exist on the whole page");
+                    isElementDisplayed = scrollDown(elementLocated);
+                    if (!isElementDisplayed) {
+                        isElementDisplayed = scrollUp(elementLocated);
+                        System.out.println("Element located with [" + elementLocated + "] is displayed: " + isElementDisplayed);
+                    }
                 } catch (Exception e) {
                     ExceptionHandling.handleException(e);
                 }
             }
             case HORIZONTAL -> {
                 try {
-                    elementDisplayed = scrollRight(elementLocated);
-                    if (!elementDisplayed) {
-                        scrollLeft(elementLocated);
-                    } else System.out.println("The element does not exist on the whole page");
+                    isElementDisplayed = scrollRight(elementLocated);
+                    if (!isElementDisplayed) {
+                        isElementDisplayed = scrollLeft(elementLocated);
+                        System.out.println("Element located with [" + elementLocated + "] is displayed: " + isElementDisplayed);
+                    }
                 } catch (Exception e) {
                     ExceptionHandling.handleException(e);
                 }
@@ -43,7 +45,7 @@ class Scroller {
     }
 
     private static boolean scrollUp(By elementLocated) {
-        boolean elementDisplayed = false;
+        boolean isElementDisplayed = false;
         String startPageSource;
         String endPageSource;
         try {
@@ -57,16 +59,16 @@ class Scroller {
                         .release()
                         .perform();
                 endPageSource = DriverManager.getPageSource();
-                elementDisplayed = Elements.elementState().isDisplayed(elementLocated);
+                isElementDisplayed = Elements.elementState().isDisplayed(elementLocated);
             } while ((!Elements.elementState().isDisplayed(elementLocated)) && (!endPageSource.equals(startPageSource)));
         } catch (Exception e) {
             ExceptionHandling.handleException(e);
         }
-        return elementDisplayed;
+        return isElementDisplayed;
     }
 
     private static boolean scrollDown(By elementLocated) {
-        boolean elementDisplayed = false;
+        boolean isElementDisplayed = false;
         String startPageSource;
         String endPageSource;
         try {
@@ -80,16 +82,16 @@ class Scroller {
                         .release()
                         .perform();
                 endPageSource = DriverManager.getPageSource();
-                elementDisplayed = Elements.elementState().isDisplayed(elementLocated);
+                isElementDisplayed = Elements.elementState().isDisplayed(elementLocated);
             } while ((!Elements.elementState().isDisplayed(elementLocated)) && (!endPageSource.equals(startPageSource)));
         } catch (Exception e) {
             ExceptionHandling.handleException(e);
         }
-        return elementDisplayed;
+        return isElementDisplayed;
     }
 
     private static boolean scrollRight(By elementLocated) {
-        boolean elementDisplayed = false;
+        boolean isElementDisplayed = false;
         String startPageSource;
         String endPageSource;
         try {
@@ -103,16 +105,16 @@ class Scroller {
                         .release()
                         .perform();
                 endPageSource = DriverManager.getPageSource();
-                elementDisplayed = Elements.elementState().isDisplayed(elementLocated);
+                isElementDisplayed = Elements.elementState().isDisplayed(elementLocated);
             } while ((!Elements.elementState().isDisplayed(elementLocated)) && (!endPageSource.equals(startPageSource)));
         } catch (Exception e) {
             ExceptionHandling.handleException(e);
         }
-        return elementDisplayed;
+        return isElementDisplayed;
     }
 
     private static boolean scrollLeft(By elementLocated) {
-        boolean elementDisplayed = false;
+        boolean isElementDisplayed = false;
         String startPageSource;
         String endPageSource;
         try {
@@ -126,11 +128,11 @@ class Scroller {
                         .release()
                         .perform();
                 endPageSource = DriverManager.getPageSource();
-                elementDisplayed = Elements.elementState().isDisplayed(elementLocated);
+                isElementDisplayed = Elements.elementState().isDisplayed(elementLocated);
             } while ((!Elements.elementState().isDisplayed(elementLocated)) && (!endPageSource.equals(startPageSource)));
         } catch (Exception e) {
             ExceptionHandling.handleException(e);
         }
-        return elementDisplayed;
+        return isElementDisplayed;
     }
 }
