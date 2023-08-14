@@ -94,7 +94,7 @@ testObservability: true
 # Automation name and appium version
 # ===================
 automationName: XCuiTest
-appiumVersion: 2.0.0
+appiumVersion: 2.0.1
 # ===================
 # Device settings
 # ===================
