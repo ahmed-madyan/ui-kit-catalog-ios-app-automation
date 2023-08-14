@@ -5,7 +5,7 @@ import driver.DriverManager;
 import elements.Elements;
 import elements.element_actions.ElementActions;
 import elements.element_actions.ElementState;
-import exceptions.ExceptionHandling;
+import exceptions.Exceptions;
 import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -34,7 +34,7 @@ public class IOSGestures {
                     "duration", (durationOfSeconds * 1000)
             ));
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return this;
     }
@@ -46,7 +46,7 @@ public class IOSGestures {
                     "element", ((RemoteWebElement) Elements.elementActions().findElement(elementLocated)).getId()
             ));
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return this;
     }
@@ -58,7 +58,7 @@ public class IOSGestures {
                     "element", ((RemoteWebElement) Elements.elementActions().findElement(elementLocated)).getId()
             ));
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return this;
 
@@ -70,7 +70,7 @@ public class IOSGestures {
                     "element", ((RemoteWebElement) element).getId()
             ));
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return this;
 
@@ -84,7 +84,7 @@ public class IOSGestures {
                     "percent", 0.75
             ));
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return this;
 
@@ -94,11 +94,10 @@ public class IOSGestures {
         try {
             ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: swipe", ImmutableMap.of(
                     "element", ((RemoteWebElement) element).getId(),
-                    "direction", direction.toString(),
-                    "percent", 0.75
+                    "direction", direction.toString().toLowerCase()
             ));
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return this;
 
@@ -112,7 +111,7 @@ public class IOSGestures {
                     "direction", direction.toString().toLowerCase()
             ));
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return this;
 
@@ -134,7 +133,7 @@ public class IOSGestures {
                 Assert.assertTrue(Elements.elementActions().findElement(elementLocated).isDisplayed());
             }
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return this;
     }
@@ -148,7 +147,7 @@ public class IOSGestures {
                     "percent", 3.0
             ));
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return this;
 
@@ -163,7 +162,7 @@ public class IOSGestures {
                     "endY", yEndCoordinate
             ));
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return this;
 

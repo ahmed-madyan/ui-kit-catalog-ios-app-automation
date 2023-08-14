@@ -4,7 +4,7 @@ import com.google.common.collect.ImmutableMap;
 import driver.DriverManager;
 import elements.Elements;
 import elements.element_actions.ElementActions;
-import exceptions.ExceptionHandling;
+import exceptions.Exceptions;
 import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 import org.openqa.selenium.By;
 
@@ -15,11 +15,11 @@ public class IOSActions {
     public ElementActions elementActions(){
         return new ElementActions();
     }
-    public IOSActions startActivity(@NotNull final String bundleId) {
+    public IOSActions startBundleId(@NotNull final String bundleId) {
         try {
             DriverManager.executeScript("mobile:launchApp", ImmutableMap.of("bundleId", bundleId));
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return this;
     }

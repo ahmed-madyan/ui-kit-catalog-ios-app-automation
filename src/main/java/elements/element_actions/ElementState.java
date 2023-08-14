@@ -2,7 +2,7 @@ package elements.element_actions;
 
 import driver.DriverManager;
 import elements.Elements;
-import exceptions.ExceptionHandling;
+import exceptions.Exceptions;
 import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 import org.openqa.selenium.By;
 
@@ -17,7 +17,7 @@ public class ElementState {
                 isCheckable = true;
             }
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return isCheckable;
     }
@@ -29,7 +29,7 @@ public class ElementState {
                 isChecked = true;
             }
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return isChecked;
     }
@@ -41,7 +41,7 @@ public class ElementState {
                 isClickable = true;
             }
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return isClickable;
     }
@@ -53,7 +53,7 @@ public class ElementState {
                 isEnabled = true;
             }
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return isEnabled;
     }
@@ -65,7 +65,7 @@ public class ElementState {
                 isFocusable = true;
             }
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return isFocusable;
     }
@@ -77,7 +77,7 @@ public class ElementState {
                 isFocused = true;
             }
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return isFocused;
     }
@@ -89,7 +89,7 @@ public class ElementState {
                 isLongClickable = true;
             }
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return isLongClickable;
     }
@@ -101,7 +101,7 @@ public class ElementState {
                 isPassword = true;
             }
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return isPassword;
     }
@@ -113,7 +113,7 @@ public class ElementState {
                 isScrollable = true;
             }
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return isScrollable;
     }
@@ -125,7 +125,7 @@ public class ElementState {
                 isSelected = true;
             }
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return isSelected;
     }
@@ -137,7 +137,7 @@ public class ElementState {
                 isDisplayed = true;
             }
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return isDisplayed;
     }

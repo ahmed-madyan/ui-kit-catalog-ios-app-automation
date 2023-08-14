@@ -1,6 +1,6 @@
 package readers.properties_reader;
 
-import exceptions.ExceptionHandling;
+import exceptions.Exceptions;
 import org.apache.commons.configuration.PropertiesConfiguration;
 
 import java.io.*;
@@ -20,7 +20,7 @@ public class PropertiesDataManager {
             properties.load(fileInputStream);
         } catch (Exception e) {
             System.out.println(e.getMessage() + "\n" + Arrays.toString(e.getStackTrace()) + "\n");
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return properties;
     }
@@ -36,7 +36,7 @@ public class PropertiesDataManager {
             properties.store(fileOutputStream, null);
         } catch (Exception e) {
             System.out.println(e.getMessage() + "\n" + e.getMessage() + "\n");
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
     }
 
@@ -63,7 +63,7 @@ public class PropertiesDataManager {
             properties.store(fileOutputStream, null);
         } catch (Exception e) {
             System.out.println(e.getMessage() + "\n" + e.getMessage() + "\n");
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
     }
 
@@ -80,7 +80,7 @@ public class PropertiesDataManager {
             conf.save();
         } catch (Exception e) {
             System.out.println(e.getMessage() + "\n" + e.getMessage() + "\n");
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
     }
 

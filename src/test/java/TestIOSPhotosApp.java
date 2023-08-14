@@ -1,6 +1,7 @@
 import assertions.Assertions;
 import driver.DriverInitializer;
 import elements.Elements;
+import elements.gesture_actions.Direction;
 import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
@@ -21,11 +22,21 @@ public class TestIOSPhotosApp extends DriverInitializer {
         Elements
                 .mobileActions()
                 .iosActions()
-                .startActivity("com.apple.mobileslideshow")
+                .startBundleId("com.apple.mobileslideshow")
                 .elementActions().click(LIBRARY_BUTTON);
         Assertions
                 .hardAssert()
                 .equals(getListOfImages(IMAGES_LIST), 9);
+
+        Elements
+                .elementActions()
+                .findElements(IMAGES_LIST)
+                .get(0)
+                .click();
+
+        for (int i = 0; i < getListOfImages(IMAGES_LIST); i++) {
+            Elements.gestureActions().iosGestures().swipe(Elements.elementActions().findElements(IMAGES_LIST).get(i), Direction.LEFT);
+        }
     }
 
     private int getListOfImages(By elementLocated) {

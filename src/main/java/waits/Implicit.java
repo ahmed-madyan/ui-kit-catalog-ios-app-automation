@@ -1,7 +1,7 @@
 package waits;
 
 import driver.DriverManager;
-import exceptions.ExceptionHandling;
+import exceptions.Exceptions;
 import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 
 import java.time.Duration;
@@ -14,7 +14,7 @@ public class Implicit {
         try {
             DriverManager.getDriverInstance().manage().timeouts().implicitlyWait(duration);
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return this;
     }

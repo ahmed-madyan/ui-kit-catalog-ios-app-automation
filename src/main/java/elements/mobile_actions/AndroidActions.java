@@ -2,7 +2,7 @@ package elements.mobile_actions;
 
 import driver.DriverManager;
 import elements.Elements;
-import exceptions.ExceptionHandling;
+import exceptions.Exceptions;
 import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.Activity;
@@ -15,7 +15,7 @@ public class AndroidActions {
         try {
             DriverManager.androidDriver().getDriverInstance().startActivity(new Activity(appPackage.trim(), appActivity.trim()));
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
     }
 
@@ -23,7 +23,7 @@ public class AndroidActions {
         try {
             Elements.elementActions().findElement(AppiumBy.ByAndroidUIAutomator.androidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\"" + elementText + "\").instance(0))"));
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
     }
 
@@ -31,7 +31,7 @@ public class AndroidActions {
         try {
             Elements.elementActions().findElement(AppiumBy.ByAndroidUIAutomator.androidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\"" + elementText + "\").instance(0))"));
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
     }
 
@@ -39,7 +39,7 @@ public class AndroidActions {
         try {
             DriverManager.androidDriver().getDriverInstance().setClipboardText(text);
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
     }
 
@@ -48,7 +48,7 @@ public class AndroidActions {
         try {
             clipboardText = DriverManager.androidDriver().getDriverInstance().getClipboardText();
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return clipboardText;
     }
@@ -57,7 +57,7 @@ public class AndroidActions {
         try {
             DriverManager.androidDriver().getDriverInstance().rotate(new DeviceRotation(0, 0, 90));
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
     }
 
@@ -65,7 +65,7 @@ public class AndroidActions {
         try {
             DriverManager.androidDriver().getDriverInstance().rotate(new DeviceRotation(0, 0, 270));
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
     }
 
@@ -73,7 +73,7 @@ public class AndroidActions {
         try {
             DriverManager.androidDriver().getDriverInstance().rotate(new DeviceRotation(0, 0, angle));
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
     }
 
@@ -81,7 +81,7 @@ public class AndroidActions {
         try {
             DriverManager.androidDriver().getDriverInstance().rotate(ScreenOrientation.PORTRAIT);
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
     }
 
@@ -89,7 +89,7 @@ public class AndroidActions {
         try {
             DriverManager.androidDriver().getDriverInstance().rotate(ScreenOrientation.LANDSCAPE);
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
     }
 
@@ -98,7 +98,7 @@ public class AndroidActions {
         try {
             text = DriverManager.androidDriver().getDriverInstance().findElement(AppiumBy.xpath("(//android.widget.Toast)[1]")).getAttribute("name");
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return text;
     }

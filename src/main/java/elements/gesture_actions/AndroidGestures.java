@@ -5,7 +5,7 @@ import driver.DriverManager;
 import elements.Elements;
 import elements.element_actions.ElementActions;
 import elements.element_actions.ElementState;
-import exceptions.ExceptionHandling;
+import exceptions.Exceptions;
 import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -34,7 +34,7 @@ public class AndroidGestures {
                     "duration", (durationOfSeconds * 1000)
             ));
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return this;
     }
@@ -46,7 +46,7 @@ public class AndroidGestures {
                     "elementId", ((RemoteWebElement) Elements.elementActions().findElement(elementLocated)).getId()
             ));
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return this;
     }
@@ -58,7 +58,7 @@ public class AndroidGestures {
                     "elementId", ((RemoteWebElement) Elements.elementActions().findElement(elementLocated)).getId()
             ));
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return this;
     }
@@ -69,7 +69,7 @@ public class AndroidGestures {
                     "elementId", ((RemoteWebElement) element).getId()
             ));
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return this;
     }
@@ -82,7 +82,7 @@ public class AndroidGestures {
                     "percent", 0.75
             ));
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return this;
     }
@@ -95,7 +95,7 @@ public class AndroidGestures {
                     "percent", 0.75
             ));
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return this;
     }
@@ -109,7 +109,7 @@ public class AndroidGestures {
                     "percent", 3.0
             ));
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return this;
     }
@@ -130,7 +130,7 @@ public class AndroidGestures {
                 Assert.assertTrue(Elements.elementActions().findElement(elementLocated).isDisplayed());
             }
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return this;
     }
@@ -144,7 +144,7 @@ public class AndroidGestures {
                     "endY", yEndCoordinate
             ));
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return this;
     }

@@ -5,7 +5,7 @@ import elements.Elements;
 import elements.gesture_actions.GestureActions;
 import elements.mobile_actions.MobileActions;
 import elements.touch_actions.TouchActions;
-import exceptions.ExceptionHandling;
+import exceptions.Exceptions;
 import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -39,7 +39,7 @@ public class ElementActions {
             Waits.fluentlyWait().visibilityOfElementLocated(elementLocated);
             element = DriverManager.getDriverInstance().findElement(elementLocated);
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return element;
     }
@@ -50,7 +50,7 @@ public class ElementActions {
             Waits.fluentlyWait().visibilityOfElementLocated(elementLocated);
             elements = DriverManager.getDriverInstance().findElements(elementLocated);
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return elements;
     }
@@ -59,7 +59,7 @@ public class ElementActions {
         try {
             findElement(elementLocated).click();
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return this;
     }
@@ -68,7 +68,7 @@ public class ElementActions {
         try {
             findElement(elementLocated).sendKeys(keyToSend);
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return this;
     }
@@ -78,7 +78,7 @@ public class ElementActions {
         try {
             elementText = findElement(elementLocated).getText();
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return elementText;
     }
@@ -88,7 +88,7 @@ public class ElementActions {
         try {
             attributeValue = findElement(elementLocated).getAttribute(attribute);
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return attributeValue;
     }
@@ -107,7 +107,7 @@ public class ElementActions {
                             "\nRight Location X: " + rightLocationX +
                             "\nMiddle Location X: " + middleLocationX);
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return middleLocationX;
     }
@@ -126,7 +126,7 @@ public class ElementActions {
                             "\nLower Location Y: " + lowerLocationY +
                             "\nMiddle Location Y: " + middleLocationY);
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return middleLocationY;
     }
@@ -138,7 +138,7 @@ public class ElementActions {
             elementLocationX = findElement(elementLocated).getLocation().getX();
             System.out.println("Element Location X: " + elementLocationX);
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return elementLocationX;
     }
@@ -149,7 +149,7 @@ public class ElementActions {
             elementWidth = findElement(elementLocated).getSize().getWidth();
             System.out.println("Element width: " + elementWidth);
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return elementWidth;
     }
@@ -160,7 +160,7 @@ public class ElementActions {
             elementLocationY = findElement(elementLocated).getLocation().getY();
             System.out.println("Element Location Y: " + elementLocationY);
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return elementLocationY;
     }
@@ -171,7 +171,7 @@ public class ElementActions {
             elementHeight = findElement(elementLocated).getSize().getHeight();
             System.out.println("Element height: " + elementHeight);
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return elementHeight;
     }
@@ -180,7 +180,7 @@ public class ElementActions {
         try {
             new Select(findElement(elementLocated)).selectByVisibleText(visibleText);
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return this;
     }
@@ -189,7 +189,7 @@ public class ElementActions {
         try {
             ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("arguments[0].style.border='3px solid red'", findElement(elementLocated));
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return this;
     }

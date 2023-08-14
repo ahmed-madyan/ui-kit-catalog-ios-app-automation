@@ -3,7 +3,7 @@ package readers.json_reader;
 import io.restassured.path.json.JsonPath;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import exceptions.ExceptionHandling;
+import exceptions.Exceptions;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -41,7 +41,7 @@ public class JSONDataManager {
             JSONParser parser = new JSONParser();
             object = (JSONObject) parser.parse(readFileJSON(filePath));
         } catch (Exception exception) {
-            ExceptionHandling.handleException(exception);
+            Exceptions.handle(exception);
         }
         return object;
     }

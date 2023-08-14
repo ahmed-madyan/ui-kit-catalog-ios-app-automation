@@ -4,7 +4,7 @@ import driver.DriverManager;
 import elements.Elements;
 import elements.element_actions.ElementActions;
 import elements.element_actions.ElementState;
-import exceptions.ExceptionHandling;
+import exceptions.Exceptions;
 import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 import io.appium.java_client.PerformsTouchActions;
 import io.appium.java_client.TouchAction;
@@ -32,7 +32,7 @@ public class TouchActions {
         try {
             touchActions.tap(ElementOption.element(Elements.elementActions().findElement(elementLocated))).perform();
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return this;
     }
@@ -44,7 +44,7 @@ public class TouchActions {
                     .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(durationOfSeconds)))
                     .perform();
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return this;
     }

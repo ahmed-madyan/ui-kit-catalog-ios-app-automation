@@ -1,7 +1,7 @@
 package waits;
 
 import driver.DriverManager;
-import exceptions.ExceptionHandling;
+import exceptions.Exceptions;
 import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
@@ -21,7 +21,7 @@ public class Explicit {
         try {
             driverWait.until(ExpectedConditions.visibilityOfElementLocated(elementLocated));
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return this;
     }
@@ -31,7 +31,7 @@ public class Explicit {
             visibilityOfElementLocated(elementLocated);
             driverWait.until(ExpectedConditions.elementToBeClickable(elementLocated));
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return this;
     }
@@ -41,7 +41,7 @@ public class Explicit {
             visibilityOfElementLocated(elementLocated);
             driverWait.until(ExpectedConditions.elementToBeSelected(elementLocated));
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return this;
     }
@@ -51,7 +51,7 @@ public class Explicit {
             visibilityOfElementLocated(elementLocated);
             driverWait.until(ExpectedConditions.elementSelectionStateToBe(elementLocated, false));
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return this;
     }
@@ -61,7 +61,7 @@ public class Explicit {
             visibilityOfElementLocated(elementLocated);
             driverWait.until(ExpectedConditions.elementSelectionStateToBe(elementLocated, state));
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return this;
     }
@@ -71,7 +71,7 @@ public class Explicit {
             visibilityOfElementLocated(elementLocated);
             driverWait.until(ExpectedConditions.textToBePresentInElementLocated(elementLocated, expectedText));
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return this;
     }
@@ -81,7 +81,7 @@ public class Explicit {
             visibilityOfElementLocated(elementLocated);
             driverWait.until(ExpectedConditions.textToBe(elementLocated, expectedText));
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return this;
     }
@@ -93,7 +93,7 @@ public class Explicit {
                 currentContext = ((AndroidDriver) DriverManager.getDriverInstance()).getContext();
             } while (!Objects.requireNonNull(currentContext).equalsIgnoreCase(context));
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return this;
     }
@@ -102,7 +102,7 @@ public class Explicit {
         try {
             driverWait.until(ExpectedConditions.urlContains(expectedURL));
         } catch (Exception e) {
-            ExceptionHandling.handleException(e);
+            Exceptions.handle(e);
         }
         return this;
     }
