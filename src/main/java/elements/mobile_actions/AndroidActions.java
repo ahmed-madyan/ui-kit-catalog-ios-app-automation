@@ -1,7 +1,7 @@
 package elements.mobile_actions;
 
 import driver.DriverManager;
-import elements.element_actions.ElementActions;
+import elements.Elements;
 import exceptions.ExceptionHandling;
 import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 import io.appium.java_client.AppiumBy;
@@ -21,7 +21,7 @@ public class AndroidActions {
 
     public static void scrollIntoView(@NotNull final String elementText) {
         try {
-            ElementActions.findElement(AppiumBy.ByAndroidUIAutomator.androidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\"" + elementText + "\").instance(0))"));
+            Elements.elementActions().findElement(AppiumBy.ByAndroidUIAutomator.androidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\"" + elementText + "\").instance(0))"));
         } catch (Exception e) {
             ExceptionHandling.handleException(e);
         }
@@ -29,7 +29,7 @@ public class AndroidActions {
 
     public static void scrollIntoElementView(@NotNull final By elementLocated, @NotNull final String elementText) {
         try {
-            ElementActions.findElement(AppiumBy.ByAndroidUIAutomator.androidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\"" + elementText + "\").instance(0))"));
+            Elements.elementActions().findElement(AppiumBy.ByAndroidUIAutomator.androidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\"" + elementText + "\").instance(0))"));
         } catch (Exception e) {
             ExceptionHandling.handleException(e);
         }

@@ -147,9 +147,9 @@ public class Verify {
 
     public Verify elementText(@NotNull final By elementLocated, final String expectedText) {
         try {
-            softAssert.assertEquals(ElementActions.getText(elementLocated).trim(), expectedText.trim());
+            softAssert.assertEquals(Elements.elementActions().getText(elementLocated).trim(), expectedText.trim());
             softAssert.assertAll();
-            System.out.println("Element text {" + ElementActions.getText(elementLocated).trim() + "} located with {" + elementLocated.toString() + "} is equals to the expected text {" + expectedText.trim() + "}");
+            System.out.println("Element text {" + Elements.elementActions().getText(elementLocated).trim() + "} located with {" + elementLocated.toString() + "} is equals to the expected text {" + expectedText.trim() + "}");
         } catch (Exception e) {
            ExceptionHandling.handleException(e);
         }
@@ -191,7 +191,7 @@ public class Verify {
 
     public Verify elementAttributeToBe(@NotNull final By elementLocated, @NotNull final String attribute, @NotNull final boolean expected) {
         try {
-            softAssert.assertEquals(ElementActions.getAttribute(elementLocated, attribute), expected);
+            softAssert.assertEquals(Elements.elementActions().getAttribute(elementLocated, attribute), expected);
             softAssert.assertAll();
             System.out.println("Attribute {" + attribute + "} is equals to the expected {" + expected + "}");
         } catch (Exception e) {
@@ -202,7 +202,7 @@ public class Verify {
 
     public Verify elementAttributeToBe(@NotNull final By elementLocated, @NotNull final String attribute, @NotNull final String value) {
         try {
-            softAssert.assertEquals(ElementActions.getAttribute(elementLocated, attribute), value);
+            softAssert.assertEquals(Elements.elementActions().getAttribute(elementLocated, attribute), value);
             softAssert.assertAll();
             System.out.println("Attribute {" + attribute + "} is equals to the expected {" + value + "}");
         } catch (Exception e) {

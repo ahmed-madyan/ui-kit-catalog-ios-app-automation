@@ -1,6 +1,7 @@
 package elements.touch_actions;
 
 import driver.DriverManager;
+import elements.Elements;
 import elements.element_actions.ElementActions;
 import elements.element_actions.ElementState;
 import exceptions.ExceptionHandling;
@@ -29,7 +30,7 @@ public class TouchActions {
 
     public TouchActions tap(final By elementLocated) {
         try {
-            touchActions.tap(ElementOption.element(ElementActions.findElement(elementLocated))).perform();
+            touchActions.tap(ElementOption.element(Elements.elementActions().findElement(elementLocated))).perform();
         } catch (Exception e) {
             ExceptionHandling.handleException(e);
         }
@@ -39,7 +40,7 @@ public class TouchActions {
     public TouchActions longPress(@NotNull final By elementLocated, @NotNull final int durationOfSeconds) {
         try {
             touchActions
-                    .longPress(ElementOption.element(ElementActions.findElement(elementLocated)))
+                    .longPress(ElementOption.element(Elements.elementActions().findElement(elementLocated)))
                     .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(durationOfSeconds)))
                     .perform();
         } catch (Exception e) {

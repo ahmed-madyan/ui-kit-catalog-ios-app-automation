@@ -33,7 +33,7 @@ public class ElementActions {
         return new TouchActions();
     }
 
-    public static WebElement findElement(@NotNull final By elementLocated) {
+    public WebElement findElement(@NotNull final By elementLocated) {
         WebElement element = null;
         try {
             Waits.fluentlyWait().visibilityOfElementLocated(elementLocated);
@@ -44,15 +44,15 @@ public class ElementActions {
         return element;
     }
 
-    public static List<WebElement> findElements(@NotNull final By elementLocated) {
-        List<WebElement> element = null;
+    public List<WebElement> findElements(@NotNull final By elementLocated) {
+        List<WebElement> elements = null;
         try {
             Waits.fluentlyWait().visibilityOfElementLocated(elementLocated);
-            element = DriverManager.getDriverInstance().findElements(elementLocated);
+            elements = DriverManager.getDriverInstance().findElements(elementLocated);
         } catch (Exception e) {
             ExceptionHandling.handleException(e);
         }
-        return element;
+        return elements;
     }
 
     public ElementActions click(@NotNull final By elementLocated) {
@@ -73,7 +73,7 @@ public class ElementActions {
         return this;
     }
 
-    public static String getText(@NotNull final By elementLocated) {
+    public String getText(@NotNull final By elementLocated) {
         String elementText = null;
         try {
             elementText = findElement(elementLocated).getText();
@@ -83,7 +83,7 @@ public class ElementActions {
         return elementText;
     }
 
-    public static String getAttribute(@NotNull final By elementLocated, @NotNull final String attribute) {
+    public String getAttribute(@NotNull final By elementLocated, @NotNull final String attribute) {
         String attributeValue = null;
         try {
             attributeValue = findElement(elementLocated).getAttribute(attribute);
@@ -93,7 +93,7 @@ public class ElementActions {
         return attributeValue;
     }
 
-    public static int getMiddleLocationX(@NotNull final By elementLocated) {
+    public int getMiddleLocationX(@NotNull final By elementLocated) {
         int leftLocationX;
         int rightLocationX;
         int middleLocationX = 0;
@@ -112,7 +112,7 @@ public class ElementActions {
         return middleLocationX;
     }
 
-    public static int getMiddleLocationY(@NotNull final By elementLocated) {
+    public int getMiddleLocationY(@NotNull final By elementLocated) {
         int upperLocationY;
         int lowerLocationY;
         int middleLocationY = 0;
@@ -131,7 +131,7 @@ public class ElementActions {
         return middleLocationY;
     }
 
-    public static int getElementLocationX(@NotNull final By elementLocated) {
+    public int getElementLocationX(@NotNull final By elementLocated) {
         int elementLocationX = 0;
         try {
             Waits.fluentlyWait().visibilityOfElementLocated(elementLocated);
@@ -143,7 +143,7 @@ public class ElementActions {
         return elementLocationX;
     }
 
-    public static int getElementWidth(@NotNull final By elementLocated) {
+    public int getElementWidth(@NotNull final By elementLocated) {
         int elementWidth = 0;
         try {
             elementWidth = findElement(elementLocated).getSize().getWidth();
@@ -154,7 +154,7 @@ public class ElementActions {
         return elementWidth;
     }
 
-    public static int getElementLocationY(@NotNull final By elementLocated) {
+    public int getElementLocationY(@NotNull final By elementLocated) {
         int elementLocationY = 0;
         try {
             elementLocationY = findElement(elementLocated).getLocation().getY();
@@ -165,7 +165,7 @@ public class ElementActions {
         return elementLocationY;
     }
 
-    public static int getElementHeight(@NotNull final By elementLocated) {
+    public int getElementHeight(@NotNull final By elementLocated) {
         int elementHeight = 0;
         try {
             elementHeight = findElement(elementLocated).getSize().getHeight();
@@ -176,19 +176,21 @@ public class ElementActions {
         return elementHeight;
     }
 
-    public static void selectByVisibleText(@NotNull final By elementLocated, @NotNull final String visibleText) {
+    public ElementActions selectByVisibleText(@NotNull final By elementLocated, @NotNull final String visibleText) {
         try {
             new Select(findElement(elementLocated)).selectByVisibleText(visibleText);
         } catch (Exception e) {
             ExceptionHandling.handleException(e);
         }
+        return this;
     }
 
-    public static void highlightWebElementLocated(@NotNull final By elementLocated) {
+    public ElementActions highlightWebElementLocated(@NotNull final By elementLocated) {
         try {
-            ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("arguments[0].style.border='3px solid red'", ElementActions.findElement(elementLocated));
+            ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("arguments[0].style.border='3px solid red'", findElement(elementLocated));
         } catch (Exception e) {
             ExceptionHandling.handleException(e);
         }
+        return this;
     }
 }

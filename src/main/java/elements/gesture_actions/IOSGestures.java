@@ -30,7 +30,7 @@ public class IOSGestures {
         Waits.fluentlyWait().elementToBeClickable(elementLocated);
         try {
             ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: touchAndHold", ImmutableMap.of(
-                    "element", ((RemoteWebElement) ElementActions.findElement(elementLocated)).getId(),
+                    "element", ((RemoteWebElement) Elements.elementActions().findElement(elementLocated)).getId(),
                     "duration", (durationOfSeconds * 1000)
             ));
         } catch (Exception e) {
@@ -43,7 +43,7 @@ public class IOSGestures {
         Waits.fluentlyWait().elementToBeClickable(elementLocated);
         try {
             ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: doubleClickGesture", ImmutableMap.of(
-                    "element", ((RemoteWebElement) ElementActions.findElement(elementLocated)).getId()
+                    "element", ((RemoteWebElement) Elements.elementActions().findElement(elementLocated)).getId()
             ));
         } catch (Exception e) {
             ExceptionHandling.handleException(e);
@@ -55,7 +55,7 @@ public class IOSGestures {
         Waits.fluentlyWait().elementToBeClickable(elementLocated);
         try {
             DriverManager.getDriverInstance().executeScript("mobile: tap", ImmutableMap.of(
-                    "element", ((RemoteWebElement) ElementActions.findElement(elementLocated)).getId()
+                    "element", ((RemoteWebElement) Elements.elementActions().findElement(elementLocated)).getId()
             ));
         } catch (Exception e) {
             ExceptionHandling.handleException(e);
@@ -79,7 +79,7 @@ public class IOSGestures {
     public IOSGestures swipe(@NotNull final By elementLocated, @NotNull final Direction direction) {
         try {
             ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: swipe", ImmutableMap.of(
-                    "element", ((RemoteWebElement) ElementActions.findElement(elementLocated)).getId(),
+                    "element", ((RemoteWebElement) Elements.elementActions().findElement(elementLocated)).getId(),
                     "direction", direction.toString(),
                     "percent", 0.75
             ));
@@ -131,7 +131,7 @@ public class IOSGestures {
                 elementDisplayed = Elements.elementState().isDisplayed(elementLocated);
             } while (canScrollMore && !elementDisplayed);
             {
-                Assert.assertTrue(ElementActions.findElement(elementLocated).isDisplayed());
+                Assert.assertTrue(Elements.elementActions().findElement(elementLocated).isDisplayed());
             }
         } catch (Exception e) {
             ExceptionHandling.handleException(e);
@@ -158,7 +158,7 @@ public class IOSGestures {
         Waits.fluentlyWait().elementToBeClickable(elementLocated);
         try {
             ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: dragGesture", ImmutableMap.of(
-                    "element", ((RemoteWebElement) ElementActions.findElement(elementLocated)).getId(),
+                    "element", ((RemoteWebElement) Elements.elementActions().findElement(elementLocated)).getId(),
                     "endX", xEndCoordinate,
                     "endY", yEndCoordinate
             ));

@@ -6,7 +6,7 @@
         <classes>
 <!--            <class name="TestIOSAlerts"/>-->
 <!--            <class name="TestIOSLongPress"/>-->
-            <class name="TestIOSScroll"/>
+            <class name="TestIOSScrollWithGestures"/>
 <!--            <class name="TestIOSPicker"/>-->
         </classes>
     </test>

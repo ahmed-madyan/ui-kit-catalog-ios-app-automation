@@ -2,6 +2,7 @@ package elements.gesture_actions;
 
 import com.google.common.collect.ImmutableMap;
 import driver.DriverManager;
+import elements.Elements;
 import elements.element_actions.ElementActions;
 import elements.element_actions.ElementState;
 import exceptions.ExceptionHandling;
@@ -29,7 +30,7 @@ public class AndroidGestures {
         Waits.fluentlyWait().elementToBeClickable(elementLocated);
         try {
             ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: longClickGesture", ImmutableMap.of(
-                    "elementId", ((RemoteWebElement) ElementActions.findElement(elementLocated)).getId(),
+                    "elementId", ((RemoteWebElement) Elements.elementActions().findElement(elementLocated)).getId(),
                     "duration", (durationOfSeconds * 1000)
             ));
         } catch (Exception e) {
@@ -42,7 +43,7 @@ public class AndroidGestures {
         Waits.fluentlyWait().elementToBeClickable(elementLocated);
         try {
             ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: doubleClickGesture", ImmutableMap.of(
-                    "elementId", ((RemoteWebElement) ElementActions.findElement(elementLocated)).getId()
+                    "elementId", ((RemoteWebElement) Elements.elementActions().findElement(elementLocated)).getId()
             ));
         } catch (Exception e) {
             ExceptionHandling.handleException(e);
@@ -54,7 +55,7 @@ public class AndroidGestures {
         Waits.fluentlyWait().elementToBeClickable(elementLocated);
         try {
             DriverManager.getDriverInstance().executeScript("mobile: clickGesture", ImmutableMap.of(
-                    "elementId", ((RemoteWebElement) ElementActions.findElement(elementLocated)).getId()
+                    "elementId", ((RemoteWebElement) Elements.elementActions().findElement(elementLocated)).getId()
             ));
         } catch (Exception e) {
             ExceptionHandling.handleException(e);
@@ -76,7 +77,7 @@ public class AndroidGestures {
     public AndroidGestures swipe(@NotNull final By elementLocated, @NotNull final Direction direction) {
         try {
             ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: swipeGesture", ImmutableMap.of(
-                    "elementId", ((RemoteWebElement) ElementActions.findElement(elementLocated)).getId(),
+                    "elementId", ((RemoteWebElement) Elements.elementActions().findElement(elementLocated)).getId(),
                     "direction", direction.toString(),
                     "percent", 0.75
             ));
@@ -103,7 +104,7 @@ public class AndroidGestures {
         boolean canScrollMore = false;
         try {
             ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: scrollGesture", ImmutableMap.of(
-                    "elementId", ((RemoteWebElement) ElementActions.findElement(elementLocated)).getId(),
+                    "elementId", ((RemoteWebElement) Elements.elementActions().findElement(elementLocated)).getId(),
                     "direction", direction.toString(),
                     "percent", 3.0
             ));
@@ -123,10 +124,10 @@ public class AndroidGestures {
                         "direction", direction.toString(),
                         "percent", 3.0
                 ));
-                elementDisplayed = ElementActions.findElement(elementLocated).isDisplayed();
+                elementDisplayed = Elements.elementActions().findElement(elementLocated).isDisplayed();
             } while (canScrollMore && !elementDisplayed);
             {
-                Assert.assertTrue(ElementActions.findElement(elementLocated).isDisplayed());
+                Assert.assertTrue(Elements.elementActions().findElement(elementLocated).isDisplayed());
             }
         } catch (Exception e) {
             ExceptionHandling.handleException(e);
@@ -138,7 +139,7 @@ public class AndroidGestures {
         Waits.fluentlyWait().elementToBeClickable(elementLocated);
         try {
             ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: dragGesture", ImmutableMap.of(
-                    "elementId", ((RemoteWebElement) ElementActions.findElement(elementLocated)).getId(),
+                    "elementId", ((RemoteWebElement) Elements.elementActions().findElement(elementLocated)).getId(),
                     "endX", xEndCoordinate,
                     "endY", yEndCoordinate
             ));

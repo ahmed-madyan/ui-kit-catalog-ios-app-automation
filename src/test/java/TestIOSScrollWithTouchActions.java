@@ -5,7 +5,7 @@ import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
-public class TestIOSScroll extends DriverInitializer {
+public class TestIOSScrollWithTouchActions extends DriverInitializer {
 
     private static final By WEB_VIEW_BUTTON = AppiumBy.accessibilityId("Web View");
     private static final By TEXT_ENTRY_ALERT_OK_BUTTON = AppiumBy.accessibilityId("OK");
@@ -18,18 +18,6 @@ public class TestIOSScroll extends DriverInitializer {
 
     @Test
     public void testIOSScroll() throws InterruptedException {
-//        Elements
-//                .gestureActions()
-//                .iosGestures()
-//                .scrollWithCoordinates(Web_View_BUTTON, IOSGestures.Direction.DOWN)
-//                .elementActions()
-//                .click(Web_View_BUTTON);
-//        Elements
-//                .touchActions()
-//                .scrollToElement(Web_View_BUTTON)
-//                .elementActions()
-//                .click(Web_View_BUTTON);
-
         Elements
                 .touchActions()
                 .scrollToElement(WEB_VIEW_BUTTON, Direction.VERTICAL)

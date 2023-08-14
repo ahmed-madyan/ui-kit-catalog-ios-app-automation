@@ -1,7 +1,6 @@
 package assertions;
 
 import elements.Elements;
-import elements.element_actions.ElementActions;
 import exceptions.ExceptionHandling;
 import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 import org.openqa.selenium.By;
@@ -133,8 +132,8 @@ public class Assert {
 
     public Assert elementTextToBe(@NotNull final By elementLocated, final String expectedText) {
         try {
-            new Assertion().assertEquals(ElementActions.getText(elementLocated).trim(), expectedText.trim());
-            System.out.println("Element text {" + ElementActions.getText(elementLocated).trim() + "} located with {" + elementLocated.toString() + "} is equals to the expected text {" + expectedText.trim() + "}");
+            new Assertion().assertEquals(Elements.elementActions().getText(elementLocated).trim(), expectedText.trim());
+            System.out.println("Element text {" + Elements.elementActions().getText(elementLocated).trim() + "} located with {" + elementLocated.toString() + "} is equals to the expected text {" + expectedText.trim() + "}");
         } catch (Exception e) {
            ExceptionHandling.handleException(e);
         }
@@ -143,8 +142,8 @@ public class Assert {
 
     public Assert elementTextContains(@NotNull final By elementLocated, final String expectedText) {
         try {
-            new Assertion().assertTrue(ElementActions.getText(elementLocated).trim().contains(expectedText.trim()));
-            System.out.println("Element text {" + ElementActions.getText(elementLocated).trim() + "} located with {" + elementLocated.toString() + "} contains the expected text {" + expectedText.trim() + "}");
+            new Assertion().assertTrue(Elements.elementActions().getText(elementLocated).trim().contains(expectedText.trim()));
+            System.out.println("Element text {" + Elements.elementActions().getText(elementLocated).trim() + "} located with {" + elementLocated.toString() + "} contains the expected text {" + expectedText.trim() + "}");
         } catch (Exception e) {
             ExceptionHandling.handleException(e);
         }
@@ -182,7 +181,7 @@ public class Assert {
 
     public Assert elementAttributeToBe(@NotNull final By elementLocated, @NotNull final String attribute, @NotNull final boolean expected) {
         try {
-            new Assertion().assertEquals(ElementActions.getAttribute(elementLocated, attribute), expected);
+            new Assertion().assertEquals(Elements.elementActions().getAttribute(elementLocated, attribute), expected);
             System.out.println("Attribute {" + attribute + "} is equals to the expected {" + expected + "}");
         } catch (Exception e) {
            ExceptionHandling.handleException(e);
@@ -192,7 +191,7 @@ public class Assert {
 
     public Assert elementAttributeToBe(@NotNull final By elementLocated, @NotNull final String attribute, @NotNull final String value) {
         try {
-            new Assertion().assertEquals(ElementActions.getAttribute(elementLocated, attribute), value);
+            new Assertion().assertEquals(Elements.elementActions().getAttribute(elementLocated, attribute), value);
             System.out.println("Attribute {" + attribute + "} is equals to the expected {" + value + "}");
         } catch (Exception e) {
            ExceptionHandling.handleException(e);
