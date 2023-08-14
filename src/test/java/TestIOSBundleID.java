@@ -1,9 +1,10 @@
 import driver.DriverInitializer;
+import elements.Elements;
 import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
-public class TestIOSSliding extends DriverInitializer {
+public class TestIOSBundleID extends DriverInitializer {
     private static final By ALERT_VIEWS_BUTTON = AppiumBy.accessibilityId("Alert Views");
     private static final By TEXT_ENTRY_BUTTON = AppiumBy.iOSClassChain("**/XCUIElementTypeStaticText[`name=='Text Entry'`]");
     private static final By TEXT_ENTRY_ALERT_TEXT_BOX = AppiumBy.iOSNsPredicateString("type == 'XCUIElementTypeTextField'");
@@ -15,6 +16,10 @@ public class TestIOSSliding extends DriverInitializer {
     private static final By CONFIRM_CANCEL_ALERT_CANCEL_BUTTON = AppiumBy.accessibilityId("Confirm");
 
     @Test
-    public void testIOSSliding() {
+    public void testIOSBundleID() {
+        Elements
+                .mobileActions()
+                .iosActions()
+                .startActivity("com.apple.mobileslideshow");
     }
 }

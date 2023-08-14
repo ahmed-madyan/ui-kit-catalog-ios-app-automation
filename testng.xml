@@ -9,6 +9,7 @@
             <class name="TestIOSScrollWithGestures"/>
             <class name="TestIOSScrollWithTouchActions"/>
             <class name="TestIOSPicker"/>
+            <class name="TestIOSBundleID"/>
         </classes>
     </test>
 </suite>

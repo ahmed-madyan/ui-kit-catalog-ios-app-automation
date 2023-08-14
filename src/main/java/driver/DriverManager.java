@@ -1,5 +1,7 @@
 package driver;
 
+import com.google.common.collect.ImmutableMap;
+import exceptions.ExceptionHandling;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
@@ -34,5 +36,13 @@ public class DriverManager {
 
     public static String getPageSource() {
         return DriverManager.getDriverInstance().getPageSource();
+    }
+
+    public static void executeScript(String script, ImmutableMap<Object, Object> immutableMap) {
+        try {
+            DriverInitializer.getDriver().executeScript(script, immutableMap);
+        } catch (Exception e) {
+            ExceptionHandling.handleException(e);
+        }
     }
 }
