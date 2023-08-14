@@ -198,4 +198,44 @@ public class Assert {
         }
         return this;
     }
+
+    public Assert equals(@NotNull final Object actual, @NotNull final Object expected) {
+        try {
+            new Assertion().assertEquals(actual, expected);
+            System.out.println("Actual {" + actual + "} is equals to the expected {" + expected + "}");
+        } catch (Exception e) {
+            ExceptionHandling.handleException(e);
+        }
+        return this;
+    }
+
+    public Assert notEquals(@NotNull final Object actual, @NotNull final Object expected) {
+        try {
+            new Assertion().assertNotEquals(actual, expected);
+            System.out.println("Actual {" + actual + "} not equals to the expected {" + expected + "}");
+        } catch (Exception e) {
+            ExceptionHandling.handleException(e);
+        }
+        return this;
+    }
+
+    public Assert assertTrue(@NotNull final boolean condition) {
+        try {
+            new Assertion().assertTrue(condition);
+            System.out.println("Actual condition is: {" + condition + "}");
+        } catch (Exception e) {
+            ExceptionHandling.handleException(e);
+        }
+        return this;
+    }
+
+    public Assert assertFalse(@NotNull final boolean condition) {
+        try {
+            new Assertion().assertFalse(condition);
+            System.out.println("Actual condition is: {" + condition + "}");
+        } catch (Exception e) {
+            ExceptionHandling.handleException(e);
+        }
+        return this;
+    }
 }

@@ -1,7 +1,6 @@
 package assertions;
 
 import elements.Elements;
-import elements.element_actions.ElementActions;
 import exceptions.ExceptionHandling;
 import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 import org.openqa.selenium.By;
@@ -205,6 +204,50 @@ public class Verify {
             softAssert.assertEquals(Elements.elementActions().getAttribute(elementLocated, attribute), value);
             softAssert.assertAll();
             System.out.println("Attribute {" + attribute + "} is equals to the expected {" + value + "}");
+        } catch (Exception e) {
+            ExceptionHandling.handleException(e);
+        }
+        return this;
+    }
+
+    public Verify equals(@NotNull final Object actual, @NotNull final Object expected) {
+        try {
+            softAssert.assertEquals(actual, expected);
+            softAssert.assertAll();
+            System.out.println("Actual {" + actual + "} is equals to the expected {" + expected + "}");
+        } catch (Exception e) {
+            ExceptionHandling.handleException(e);
+        }
+        return this;
+    }
+
+    public Verify notEquals(@NotNull final Object actual, @NotNull final Object expected) {
+        try {
+            softAssert.assertNotEquals(actual, expected);
+            softAssert.assertAll();
+            System.out.println("Actual {" + actual + "} not equals to the expected {" + expected + "}");
+        } catch (Exception e) {
+            ExceptionHandling.handleException(e);
+        }
+        return this;
+    }
+
+    public Verify assertTrue(@NotNull final boolean condition) {
+        try {
+            softAssert.assertTrue(condition);
+            softAssert.assertAll();
+            System.out.println("Actual condition is: {" + condition + "}");
+        } catch (Exception e) {
+            ExceptionHandling.handleException(e);
+        }
+        return this;
+    }
+
+    public Verify assertFalse(@NotNull final boolean condition) {
+        try {
+            softAssert.assertFalse(condition);
+            softAssert.assertAll();
+            System.out.println("Actual condition is: {" + condition + "}");
         } catch (Exception e) {
             ExceptionHandling.handleException(e);
         }

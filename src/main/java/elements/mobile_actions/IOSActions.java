@@ -3,6 +3,7 @@ package elements.mobile_actions;
 import com.google.common.collect.ImmutableMap;
 import driver.DriverManager;
 import elements.Elements;
+import elements.element_actions.ElementActions;
 import exceptions.ExceptionHandling;
 import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 import org.openqa.selenium.By;
@@ -11,6 +12,9 @@ public class IOSActions {
     public IOSActions() {
     }
 
+    public ElementActions elementActions(){
+        return new ElementActions();
+    }
     public IOSActions startActivity(@NotNull final String bundleId) {
         try {
             DriverManager.executeScript("mobile:launchApp", ImmutableMap.of("bundleId", bundleId));
