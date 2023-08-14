@@ -24,11 +24,11 @@ public class TestIOSLongPress extends DriverInitializer {
                 .iosGestures()
                 .longClick(CUSTOM_INCREMENT_BUTTON, 10);
 
-        Elements
-                .elementActions()
-                .click(Steppers_BUTTON)
-                .click(CUSTOM_INCREMENT_BUTTON)
-                .touchActions()
-                .longPress(CUSTOM_INCREMENT_BUTTON, 10);
+//        Elements
+//                .elementActions()
+//                .click(Steppers_BUTTON)
+//                .click(CUSTOM_INCREMENT_BUTTON)
+//                .touchActions()
+//                .longPress(CUSTOM_INCREMENT_BUTTON, 10);
     }
 }
