@@ -87,20 +87,28 @@ public class IOSGestures {
             Exceptions.handle(e);
         }
         return this;
-
     }
 
-    public IOSGestures swipe(@NotNull final WebElement element, @NotNull final Direction direction) {
+    public IOSGestures swipe(@NotNull final WebElement elementLocated, @NotNull final Direction direction) {
         try {
             ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: swipe", ImmutableMap.of(
-                    "element", ((RemoteWebElement) element).getId(),
-                    "direction", direction.toString().toLowerCase()
+                    "element", ((RemoteWebElement) elementLocated).getId(),
+                    "direction", direction.toString(),
+                    "percent", 0.75
             ));
         } catch (Exception e) {
             Exceptions.handle(e);
         }
         return this;
+    }
 
+    public IOSGestures swipe(@NotNull final Direction direction) {
+        try {
+            DriverManager.executeScript("mobile: swipe", ImmutableMap.of("direction", direction.toString().toLowerCase()));
+        } catch (Exception e) {
+            Exceptions.handle(e);
+        }
+        return this;
     }
 
     public IOSGestures scrollToElement(@NotNull final By elementLocated, @NotNull final Direction direction) {

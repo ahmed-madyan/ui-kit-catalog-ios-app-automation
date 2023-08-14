@@ -5,6 +5,7 @@ import elements.gesture_actions.Direction;
 import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
+import waits.Waits;
 
 public class TestIOSPhotosApp extends DriverInitializer {
     private static final By LIBRARY_BUTTON = AppiumBy.accessibilityId("Library");
@@ -28,14 +29,22 @@ public class TestIOSPhotosApp extends DriverInitializer {
                 .hardAssert()
                 .equals(getListOfImages(IMAGES_LIST), 9);
 
+        int images = getListOfImages(IMAGES_LIST);
+        System.out.println("Number of images: " + images);
         Elements
                 .elementActions()
                 .findElements(IMAGES_LIST)
                 .get(0)
                 .click();
+        Waits.fluentlyWait().visibilityOfElementLocated(IMAGES_LIST);
 
-        for (int i = 0; i < getListOfImages(IMAGES_LIST); i++) {
-            Elements.gestureActions().iosGestures().swipe(Elements.elementActions().findElements(IMAGES_LIST).get(i), Direction.LEFT);
+
+        for (int i = 0; i < images; i++) {
+            System.out.println("Iteration index: [" + i + "]");
+            Elements
+                    .gestureActions()
+                    .iosGestures()
+                    .swipe(Direction.LEFT);
         }
     }
 
