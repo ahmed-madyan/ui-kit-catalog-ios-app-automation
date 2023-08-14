@@ -25,17 +25,24 @@ public class TestIOSAlerts extends DriverInitializer {
                 .click(TEXT_ENTRY_ALERT_Cancel_BUTTON)
                 .click(TEXT_ENTRY_BUTTON)
                 .sendKeys(TEXT_ENTRY_ALERT_TEXT_BOX, "Ahmed")
-                .click(TEXT_ENTRY_ALERT_OK_BUTTON);
-
-        Elements.elementActions()
+                .click(TEXT_ENTRY_ALERT_OK_BUTTON)
                 .click(CONFIRM_CANCEL_ALERT_BUTTON);
-        Assertions.hardAssert()
+
+        Assertions
+                .hardAssert()
                 .elementDisplayed(CONFIRM_CANCEL_ALERT_MESSAGE_TEXT)
                 .elementTextToBe(CONFIRM_CANCEL_ALERT_MESSAGE_TEXT, "A message should be a short, complete sentence.");
-        Elements.elementActions()
+
+        Elements
+                .elementActions()
                 .click(CONFIRM_CANCEL_ALERT_CANCEL_BUTTON);
-        Assertions.hardAssert().elementNotDisplayed(CONFIRM_CANCEL_ALERT_MESSAGE_TEXT);
-        Elements.elementActions()
+
+        Assertions
+                .hardAssert()
+                .elementNotDisplayed(CONFIRM_CANCEL_ALERT_MESSAGE_TEXT);
+
+        Elements
+                .elementActions()
                 .click(CONFIRM_CANCEL_ALERT_BUTTON)
                 .click(CONFIRM_CANCEL_ALERT_CONFIRM_BUTTON);
     }
