@@ -6,6 +6,7 @@ import elements.gesture_actions.GestureActions;
 import elements.mobile_actions.MobileActions;
 import elements.touch_actions.TouchActions;
 import exceptions.ExceptionHandling;
+import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -32,7 +33,7 @@ public class ElementActions {
         return new TouchActions();
     }
 
-    public static WebElement findElement(final By elementLocated) {
+    public static WebElement findElement(@NotNull final By elementLocated) {
         WebElement element = null;
         try {
             Waits.fluentlyWait().visibilityOfElementLocated(elementLocated);
@@ -43,7 +44,7 @@ public class ElementActions {
         return element;
     }
 
-    public static List<WebElement> findElements(final By elementLocated) {
+    public static List<WebElement> findElements(@NotNull final By elementLocated) {
         List<WebElement> element = null;
         try {
             Waits.fluentlyWait().visibilityOfElementLocated(elementLocated);
@@ -54,7 +55,7 @@ public class ElementActions {
         return element;
     }
 
-    public ElementActions click(final By elementLocated) {
+    public ElementActions click(@NotNull final By elementLocated) {
         try {
             findElement(elementLocated).click();
         } catch (Exception e) {
@@ -63,7 +64,7 @@ public class ElementActions {
         return this;
     }
 
-    public ElementActions sendKeys(final By elementLocated, final String keyToSend) {
+    public ElementActions sendKeys(@NotNull final By elementLocated, @NotNull final String keyToSend) {
         try {
             findElement(elementLocated).sendKeys(keyToSend);
         } catch (Exception e) {
@@ -72,7 +73,7 @@ public class ElementActions {
         return this;
     }
 
-    public static String getText(final By elementLocated) {
+    public static String getText(@NotNull final By elementLocated) {
         String elementText = null;
         try {
             elementText = findElement(elementLocated).getText();
@@ -82,7 +83,7 @@ public class ElementActions {
         return elementText;
     }
 
-    public static String getAttribute(final By elementLocated, String attribute) {
+    public static String getAttribute(@NotNull final By elementLocated, @NotNull final String attribute) {
         String attributeValue = null;
         try {
             attributeValue = findElement(elementLocated).getAttribute(attribute);
@@ -92,7 +93,7 @@ public class ElementActions {
         return attributeValue;
     }
 
-    public static int getMiddleLocationX(final By elementLocated) {
+    public static int getMiddleLocationX(@NotNull final By elementLocated) {
         int leftLocationX;
         int rightLocationX;
         int middleLocationX = 0;
@@ -111,7 +112,7 @@ public class ElementActions {
         return middleLocationX;
     }
 
-    public static int getMiddleLocationY(final By elementLocated) {
+    public static int getMiddleLocationY(@NotNull final By elementLocated) {
         int upperLocationY;
         int lowerLocationY;
         int middleLocationY = 0;
@@ -130,7 +131,7 @@ public class ElementActions {
         return middleLocationY;
     }
 
-    public static int getElementLocationX(final By elementLocated) {
+    public static int getElementLocationX(@NotNull final By elementLocated) {
         int elementLocationX = 0;
         try {
             Waits.fluentlyWait().visibilityOfElementLocated(elementLocated);
@@ -142,7 +143,7 @@ public class ElementActions {
         return elementLocationX;
     }
 
-    public static int getElementWidth(final By elementLocated) {
+    public static int getElementWidth(@NotNull final By elementLocated) {
         int elementWidth = 0;
         try {
             elementWidth = findElement(elementLocated).getSize().getWidth();
@@ -153,7 +154,7 @@ public class ElementActions {
         return elementWidth;
     }
 
-    public static int getElementLocationY(final By elementLocated) {
+    public static int getElementLocationY(@NotNull final By elementLocated) {
         int elementLocationY = 0;
         try {
             elementLocationY = findElement(elementLocated).getLocation().getY();
@@ -164,7 +165,7 @@ public class ElementActions {
         return elementLocationY;
     }
 
-    public static int getElementHeight(final By elementLocated) {
+    public static int getElementHeight(@NotNull final By elementLocated) {
         int elementHeight = 0;
         try {
             elementHeight = findElement(elementLocated).getSize().getHeight();
@@ -175,7 +176,7 @@ public class ElementActions {
         return elementHeight;
     }
 
-    public static void selectByVisibleText(final By elementLocated, final String visibleText) {
+    public static void selectByVisibleText(@NotNull final By elementLocated, @NotNull final String visibleText) {
         try {
             new Select(findElement(elementLocated)).selectByVisibleText(visibleText);
         } catch (Exception e) {
@@ -183,7 +184,7 @@ public class ElementActions {
         }
     }
 
-    public static void highlightWebElementLocated(final By elementLocated) {
+    public static void highlightWebElementLocated(@NotNull final By elementLocated) {
         try {
             ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("arguments[0].style.border='3px solid red'", ElementActions.findElement(elementLocated));
         } catch (Exception e) {

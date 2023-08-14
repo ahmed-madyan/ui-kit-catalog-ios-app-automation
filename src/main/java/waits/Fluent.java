@@ -2,6 +2,7 @@ package waits;
 
 import driver.DriverManager;
 import exceptions.ExceptionHandling;
+import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -20,7 +21,7 @@ public class Fluent {
             .pollingEvery(Duration.ofSeconds(5))
             .ignoring(NoSuchElementException.class);
 
-    public Fluent visibilityOfElementLocated(By elementLocated) {
+    public Fluent visibilityOfElementLocated(@NotNull final By elementLocated) {
         try {
             driverWait.until(ExpectedConditions.visibilityOfElementLocated(elementLocated));
         } catch (Exception e) {
@@ -29,7 +30,7 @@ public class Fluent {
         return this;
     }
 
-    public Fluent elementToBeClickable(By elementLocated) {
+    public Fluent elementToBeClickable(@NotNull final By elementLocated) {
         try {
             visibilityOfElementLocated(elementLocated);
             driverWait.until(ExpectedConditions.elementToBeClickable(elementLocated));
@@ -37,10 +38,9 @@ public class Fluent {
             ExceptionHandling.handleException(e);
         }
         return this;
-
     }
 
-    public Fluent elementToBeSelected(By elementLocated) {
+    public Fluent elementToBeSelected(@NotNull final By elementLocated) {
         try {
             visibilityOfElementLocated(elementLocated);
             driverWait.until(ExpectedConditions.elementToBeSelected(elementLocated));
@@ -48,10 +48,9 @@ public class Fluent {
             ExceptionHandling.handleException(e);
         }
         return this;
-
     }
 
-    public Fluent elementToBeUnSelected(By elementLocated) {
+    public Fluent elementToBeUnSelected(@NotNull final By elementLocated) {
         try {
             visibilityOfElementLocated(elementLocated);
             driverWait.until(ExpectedConditions.elementSelectionStateToBe(elementLocated, false));
@@ -59,10 +58,9 @@ public class Fluent {
             ExceptionHandling.handleException(e);
         }
         return this;
-
     }
 
-    public Fluent elementSelectionStateToBe(By elementLocated, boolean state) {
+    public Fluent elementSelectionStateToBe(@NotNull final By elementLocated,@NotNull final  boolean state) {
         try {
             visibilityOfElementLocated(elementLocated);
             driverWait.until(ExpectedConditions.elementSelectionStateToBe(elementLocated, state));
@@ -70,10 +68,9 @@ public class Fluent {
             ExceptionHandling.handleException(e);
         }
         return this;
-
     }
 
-    public Fluent textToBePresentInElementLocated(By elementLocated, String expectedText) {
+    public Fluent textToBePresentInElementLocated(@NotNull final By elementLocated,@NotNull final  String expectedText) {
         try {
             visibilityOfElementLocated(elementLocated);
             driverWait.until(ExpectedConditions.textToBePresentInElementLocated(elementLocated, expectedText));
@@ -81,10 +78,9 @@ public class Fluent {
             ExceptionHandling.handleException(e);
         }
         return this;
-
     }
 
-    public Fluent textToBe(By elementLocated, String expectedText) {
+    public Fluent textToBe(@NotNull final By elementLocated, @NotNull final String expectedText) {
         try {
             visibilityOfElementLocated(elementLocated);
             driverWait.until(ExpectedConditions.textToBe(elementLocated, expectedText));
@@ -92,10 +88,9 @@ public class Fluent {
             ExceptionHandling.handleException(e);
         }
         return this;
-
     }
 
-    public Fluent contextToBe(String context) {
+    public Fluent contextToBe(@NotNull final String context) {
         String currentContext;
         try {
             do {
@@ -107,13 +102,12 @@ public class Fluent {
         return this;
     }
 
-    public Fluent urlContains(String expectedURL) {
+    public Fluent urlContains(@NotNull final String expectedURL) {
         try {
             driverWait.until(ExpectedConditions.urlContains(expectedURL));
         } catch (Exception e) {
             ExceptionHandling.handleException(e);
         }
         return this;
-
     }
 }

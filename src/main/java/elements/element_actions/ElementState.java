@@ -2,13 +2,14 @@ package elements.element_actions;
 
 import driver.DriverManager;
 import exceptions.ExceptionHandling;
+import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 import org.openqa.selenium.By;
 
 public class ElementState {
     public ElementState() {
     }
 
-    public  boolean isCheckable(final By elementLocated) {
+    public boolean isCheckable(@NotNull final By elementLocated) {
         boolean isCheckable = false;
         try {
             if (ElementActions.getAttribute(elementLocated, "checkable").equals("true")) {
@@ -20,7 +21,7 @@ public class ElementState {
         return isCheckable;
     }
 
-    public  boolean isChecked(final By elementLocated) {
+    public boolean isChecked(@NotNull final By elementLocated) {
         boolean isChecked = false;
         try {
             if (ElementActions.getAttribute(elementLocated, "checked").equals("true")) {
@@ -32,7 +33,7 @@ public class ElementState {
         return isChecked;
     }
 
-    public  boolean isClickable(final By elementLocated) {
+    public boolean isClickable(@NotNull final By elementLocated) {
         boolean isClickable = false;
         try {
             if (ElementActions.getAttribute(elementLocated, "clickable").equals("true")) {
@@ -44,7 +45,7 @@ public class ElementState {
         return isClickable;
     }
 
-    public  boolean isEnabled(final By elementLocated) {
+    public boolean isEnabled(@NotNull final By elementLocated) {
         boolean isEnabled = false;
         try {
             if (ElementActions.findElement(elementLocated).isEnabled()) {
@@ -56,7 +57,7 @@ public class ElementState {
         return isEnabled;
     }
 
-    public  boolean isFocusable(final By elementLocated) {
+    public boolean isFocusable(@NotNull final By elementLocated) {
         boolean isFocusable = false;
         try {
             if (ElementActions.findElement(elementLocated).getAttribute("focusable").equals("true")) {
@@ -68,7 +69,7 @@ public class ElementState {
         return isFocusable;
     }
 
-    public  boolean isFocused(final By elementLocated) {
+    public boolean isFocused(@NotNull final By elementLocated) {
         boolean isFocused = false;
         try {
             if (ElementActions.findElement(elementLocated).getAttribute("focused").equals("true")) {
@@ -80,7 +81,7 @@ public class ElementState {
         return isFocused;
     }
 
-    public  boolean isLongClickable(final By elementLocated) {
+    public boolean isLongClickable(@NotNull final By elementLocated) {
         boolean isLongClickable = false;
         try {
             if (ElementActions.findElement(elementLocated).getAttribute("long-clickable").equals("true")) {
@@ -92,7 +93,7 @@ public class ElementState {
         return isLongClickable;
     }
 
-    public  boolean isPassword(final By elementLocated) {
+    public boolean isPassword(@NotNull final By elementLocated) {
         boolean isPassword = false;
         try {
             if (ElementActions.findElement(elementLocated).getAttribute("password").equals("true")) {
@@ -104,7 +105,7 @@ public class ElementState {
         return isPassword;
     }
 
-    public  boolean isScrollable(final By elementLocated) {
+    public boolean isScrollable(@NotNull final By elementLocated) {
         boolean isScrollable = false;
         try {
             if (ElementActions.findElement(elementLocated).getAttribute("scrollable").equals("true")) {
@@ -116,7 +117,7 @@ public class ElementState {
         return isScrollable;
     }
 
-    public  boolean isSelected(final By elementLocated) {
+    public boolean isSelected(@NotNull final By elementLocated) {
         boolean isSelected = false;
         try {
             if (ElementActions.findElement(elementLocated).isSelected()) {
@@ -128,7 +129,7 @@ public class ElementState {
         return isSelected;
     }
 
-    public  boolean isDisplayed(final By elementLocated) {
+    public boolean isDisplayed(@NotNull final By elementLocated) {
         boolean isDisplayed = false;
         try {
             if (DriverManager.getDriverInstance().findElement(elementLocated).isDisplayed()) {

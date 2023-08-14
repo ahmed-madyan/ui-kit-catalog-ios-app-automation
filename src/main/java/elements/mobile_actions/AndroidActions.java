@@ -27,7 +27,7 @@ public class AndroidActions {
         }
     }
 
-    public static void scrollIntoElementView(@NotNull final By elementLocated, final String elementText) {
+    public static void scrollIntoElementView(@NotNull final By elementLocated, @NotNull final String elementText) {
         try {
             ElementActions.findElement(AppiumBy.ByAndroidUIAutomator.androidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\"" + elementText + "\").instance(0))"));
         } catch (Exception e) {

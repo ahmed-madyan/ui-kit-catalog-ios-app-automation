@@ -2,6 +2,7 @@ package waits;
 
 import driver.DriverManager;
 import exceptions.ExceptionHandling;
+import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -16,7 +17,7 @@ public class Explicit {
 
     private final WebDriverWait driverWait = new WebDriverWait(DriverManager.getDriverInstance(), Duration.ofMinutes(1));
 
-    public Explicit visibilityOfElementLocated(By elementLocated) {
+    public Explicit visibilityOfElementLocated(@NotNull final By elementLocated) {
         try {
             driverWait.until(ExpectedConditions.visibilityOfElementLocated(elementLocated));
         } catch (Exception e) {
@@ -25,7 +26,7 @@ public class Explicit {
         return this;
     }
 
-    public Explicit elementToBeClickable(By elementLocated) {
+    public Explicit elementToBeClickable(@NotNull final By elementLocated) {
         try {
             visibilityOfElementLocated(elementLocated);
             driverWait.until(ExpectedConditions.elementToBeClickable(elementLocated));
@@ -33,10 +34,9 @@ public class Explicit {
             ExceptionHandling.handleException(e);
         }
         return this;
-
     }
 
-    public Explicit elementToBeSelected(By elementLocated) {
+    public Explicit elementToBeSelected(@NotNull final By elementLocated) {
         try {
             visibilityOfElementLocated(elementLocated);
             driverWait.until(ExpectedConditions.elementToBeSelected(elementLocated));
@@ -44,10 +44,9 @@ public class Explicit {
             ExceptionHandling.handleException(e);
         }
         return this;
-
     }
 
-    public Explicit elementToBeUnSelected(By elementLocated) {
+    public Explicit elementToBeUnSelected(@NotNull final By elementLocated) {
         try {
             visibilityOfElementLocated(elementLocated);
             driverWait.until(ExpectedConditions.elementSelectionStateToBe(elementLocated, false));
@@ -55,10 +54,9 @@ public class Explicit {
             ExceptionHandling.handleException(e);
         }
         return this;
-
     }
 
-    public Explicit elementSelectionStateToBe(By elementLocated, boolean state) {
+    public Explicit elementSelectionStateToBe(@NotNull final By elementLocated, @NotNull final boolean state) {
         try {
             visibilityOfElementLocated(elementLocated);
             driverWait.until(ExpectedConditions.elementSelectionStateToBe(elementLocated, state));
@@ -66,10 +64,9 @@ public class Explicit {
             ExceptionHandling.handleException(e);
         }
         return this;
-
     }
 
-    public Explicit textToBePresentInElementLocated(By elementLocated, String expectedText) {
+    public Explicit textToBePresentInElementLocated(@NotNull final By elementLocated, @NotNull final String expectedText) {
         try {
             visibilityOfElementLocated(elementLocated);
             driverWait.until(ExpectedConditions.textToBePresentInElementLocated(elementLocated, expectedText));
@@ -77,10 +74,9 @@ public class Explicit {
             ExceptionHandling.handleException(e);
         }
         return this;
-
     }
 
-    public Explicit textToBe(By elementLocated, String expectedText) {
+    public Explicit textToBe(@NotNull final By elementLocated, @NotNull final String expectedText) {
         try {
             visibilityOfElementLocated(elementLocated);
             driverWait.until(ExpectedConditions.textToBe(elementLocated, expectedText));
@@ -88,10 +84,9 @@ public class Explicit {
             ExceptionHandling.handleException(e);
         }
         return this;
-
     }
 
-    public Explicit contextToBe(String context) {
+    public Explicit contextToBe(@NotNull final String context) {
         String currentContext;
         try {
             do {
@@ -101,6 +96,14 @@ public class Explicit {
             ExceptionHandling.handleException(e);
         }
         return this;
+    }
 
+    public Explicit urlContains(@NotNull final String expectedURL) {
+        try {
+            driverWait.until(ExpectedConditions.urlContains(expectedURL));
+        } catch (Exception e) {
+            ExceptionHandling.handleException(e);
+        }
+        return this;
     }
 }

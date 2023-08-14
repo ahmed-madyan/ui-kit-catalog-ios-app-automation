@@ -3,6 +3,7 @@ package elements.touch_actions;
 import driver.DriverManager;
 import elements.Elements;
 import exceptions.ExceptionHandling;
+import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 import io.appium.java_client.PerformsTouchActions;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.WaitOptions;
@@ -16,7 +17,7 @@ class Scroller {
     private static final TouchAction touchActions = new TouchAction((PerformsTouchActions) DriverManager.getDriverInstance());
     private static final Dimension dimension = DriverManager.getWindowSize();
 
-    protected static void scrollToElement(By elementLocated, Direction direction) {
+    protected static void scrollToElement(@NotNull final By elementLocated, @NotNull final Direction direction) {
         boolean isElementDisplayed = false;
         switch (direction) {
             case VERTICAL -> {
@@ -44,7 +45,7 @@ class Scroller {
         }
     }
 
-    private static boolean scrollUp(By elementLocated) {
+    private static boolean scrollUp(@NotNull final By elementLocated) {
         boolean isElementDisplayed = false;
         String startPageSource;
         String endPageSource;
@@ -67,7 +68,7 @@ class Scroller {
         return isElementDisplayed;
     }
 
-    private static boolean scrollDown(By elementLocated) {
+    private static boolean scrollDown(@NotNull final By elementLocated) {
         boolean isElementDisplayed = false;
         String startPageSource;
         String endPageSource;
@@ -90,7 +91,7 @@ class Scroller {
         return isElementDisplayed;
     }
 
-    private static boolean scrollRight(By elementLocated) {
+    private static boolean scrollRight(@NotNull final By elementLocated) {
         boolean isElementDisplayed = false;
         String startPageSource;
         String endPageSource;
@@ -113,7 +114,7 @@ class Scroller {
         return isElementDisplayed;
     }
 
-    private static boolean scrollLeft(By elementLocated) {
+    private static boolean scrollLeft(@NotNull final By elementLocated) {
         boolean isElementDisplayed = false;
         String startPageSource;
         String endPageSource;

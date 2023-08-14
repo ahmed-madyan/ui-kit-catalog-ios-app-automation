@@ -2,10 +2,11 @@ package elements.gesture_actions;
 
 import com.google.common.collect.ImmutableMap;
 import driver.DriverManager;
+import elements.Elements;
 import elements.element_actions.ElementActions;
 import elements.element_actions.ElementState;
-import elements.Elements;
 import exceptions.ExceptionHandling;
+import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -24,7 +25,8 @@ public class IOSGestures {
     public ElementState elementState() {
         return new ElementState();
     }
-    public IOSGestures longClick(final By elementLocated, final int durationOfSeconds) {
+
+    public IOSGestures longClick(@NotNull final By elementLocated, @NotNull final int durationOfSeconds) {
         Waits.fluentlyWait().elementToBeClickable(elementLocated);
         try {
             ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: touchAndHold", ImmutableMap.of(
@@ -37,7 +39,7 @@ public class IOSGestures {
         return this;
     }
 
-    public IOSGestures doubleClick(final By elementLocated) {
+    public IOSGestures doubleClick(@NotNull final By elementLocated) {
         Waits.fluentlyWait().elementToBeClickable(elementLocated);
         try {
             ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: doubleClickGesture", ImmutableMap.of(
@@ -49,7 +51,7 @@ public class IOSGestures {
         return this;
     }
 
-    public IOSGestures tap(final By elementLocated) {
+    public IOSGestures tap(@NotNull final By elementLocated) {
         Waits.fluentlyWait().elementToBeClickable(elementLocated);
         try {
             DriverManager.getDriverInstance().executeScript("mobile: tap", ImmutableMap.of(
@@ -62,7 +64,7 @@ public class IOSGestures {
 
     }
 
-    public IOSGestures tap(final WebElement element) {
+    public IOSGestures tap(@NotNull final WebElement element) {
         try {
             DriverManager.getDriverInstance().executeScript("mobile: tap", ImmutableMap.of(
                     "element", ((RemoteWebElement) element).getId()
@@ -74,7 +76,7 @@ public class IOSGestures {
 
     }
 
-    public IOSGestures swipe(final By elementLocated, final IOSGestures.Direction direction) {
+    public IOSGestures swipe(@NotNull final By elementLocated, @NotNull final Direction direction) {
         try {
             ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: swipe", ImmutableMap.of(
                     "element", ((RemoteWebElement) ElementActions.findElement(elementLocated)).getId(),
@@ -88,7 +90,7 @@ public class IOSGestures {
 
     }
 
-    public IOSGestures swipe(final WebElement element, final IOSGestures.Direction direction) {
+    public IOSGestures swipe(@NotNull final WebElement element, @NotNull final Direction direction) {
         try {
             ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: swipe", ImmutableMap.of(
                     "element", ((RemoteWebElement) element).getId(),
@@ -102,7 +104,7 @@ public class IOSGestures {
 
     }
 
-    public IOSGestures scrollToElement(final By elementLocated, final IOSGestures.Direction direction) {
+    public IOSGestures scrollToElement(@NotNull final By elementLocated, @NotNull final Direction direction) {
         boolean canScrollMore = false;
         try {
             ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: scroll", ImmutableMap.of(
@@ -116,7 +118,7 @@ public class IOSGestures {
 
     }
 
-    public IOSGestures scrollWithCoordinates(final By elementLocated, final IOSGestures.Direction direction) {
+    public IOSGestures scrollWithCoordinates(@NotNull final By elementLocated, @NotNull final Direction direction) {
         boolean canScrollMore = false;
         boolean elementDisplayed = false;
         try {
@@ -137,7 +139,7 @@ public class IOSGestures {
         return this;
     }
 
-    public IOSGestures scrollWithCoordinates(final IOSGestures.Direction direction) {
+    public IOSGestures scrollWithCoordinates(@NotNull final Direction direction) {
         try {
 
             ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: scroll", ImmutableMap.of(
@@ -152,7 +154,7 @@ public class IOSGestures {
 
     }
 
-    public IOSGestures drag(final By elementLocated, final int xEndCoordinate, final int yEndCoordinate) {
+    public IOSGestures drag(@NotNull final By elementLocated, @NotNull final int xEndCoordinate, @NotNull final int yEndCoordinate) {
         Waits.fluentlyWait().elementToBeClickable(elementLocated);
         try {
             ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: dragGesture", ImmutableMap.of(
@@ -165,12 +167,5 @@ public class IOSGestures {
         }
         return this;
 
-    }
-
-    public enum Direction {
-        UP,
-        DOWN,
-        RIGHT,
-        LEFT
     }
 }
